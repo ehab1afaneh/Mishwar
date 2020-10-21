@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP Version 2 : Changes
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="images/tv2chang.gif" WIDTH="326" HEIGHT="42" ALT="SNMP v2 CHANGES">
+		</CENTER>
+		<BR>
+		
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+			<B>	Datatype Changes :
+</B>			</I>
+		</FONT>
+		<BR>
+		
+		Basic datatypes were expanded slightly, counters and 
+		<A HREF="../main/glossar2.html#gauge" TARGET="glossary">gauges</A>
+		 will be defined with
+		their proper implementation size (Counter32, Counter64, Gauge32) other new types
+		were introduced : UInteger32 (unsigned Integer 32 bits long) and NsapAdress (OSI
+		addresses).
+		<BR>
+		BIT STRING datatype was added to replace the INTEGERs that express
+		a bunch of flag settings (the BIT STRING can only be enumerated, a value is
+		assigned to one bit and not to a bunch).
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>Setting Values :
+</B>			</I>
+		</FONT>
+		<BR>
+		
+		Protection in updating and setting values are added. When the new value is set,
+		it depends on the current value, the management station needs to be sure that
+		the set operations are performed in the proper order.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>Managing Rows In A Table :
+</B>			</I>
+		</FONT>
+		<BR>
+		
+		<A HREF="../main/glossar3.html#v2" TARGET="glossary">SNMP v2</A>
+		 introduces a new textual convention that promotes 
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		 data integrity
+		against simultaneous actions by multiple 
+		<A HREF="../main/glossar2.html#manager" TARGET="glossary">managers</A>
+		 (add, modify and delete table
+		rows). A new column with RowStatus is added to any table that can be updated.
+		RowStatus manage the creation and deletion of rows in a table.
+		<BR>
+		It is expressed by an INTEGER with 6 values (from 1 to 6) which are :
+		<BR>
+		<OL>
+			<LI>
+			<I>
+				active
+			</I>
+			<BR>
+			<LI>
+			<I>
+				notInService
+			</I>
+			(during its life, a table entry can be switched between active and
+			notInService, for example when an update is going to be done or when a
+			function on a device is unavailable)
+			<BR>
+			<LI>
+			<I>
+				notReady
+			</I>
+			<BR>
+			<LI>
+			<I>
+				createAndGo
+			</I>
+			(the manager creates the row by sending a set message and set the value, then
+			if the creation is correct, the value is active)
+			<BR>
+			<LI>
+			<I>
+				CreateAndWait
+			</I>
+			(when the manager does not want to use the row yet, or if some columns
+			value are not set yet.)
+			<BR>
+			<LI>
+			<I>
+				destroy
+			</I>
+		</OL>
+		<BR>
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>Module Enhancements :
+</B>			</I>
+		</FONT>
+		<BR>
+		A good MIB module is a module on which errors will be found and on which
+		new features could be add.
+		<BR>
+		<BR>
+		The new MODULE-IDENTITY 
+		<A HREF="../main/glossar2.html#macro" TARGET="glossary">Macro</A>
+		 contains information about when the module has
+		been LAST UPDATED, the ORGANIZATION responsible for the module, the person to
+		contact, the DESCRIPTION of the module and its revision 	history.
+		<BR>
+		Thus a vendor can identify the release of a product and where to report bugs.
+		<BR>
+		When you update a module:
+		<BR>
+		<UL>
+			<LI>
+			you are allowed to add new objects (including new table columns).
+			<LI>
+			you can mark useless old objects as deprecated, obsolete or delete them.
+			<LI>
+			you can also revise an existing module by adding units, references, definition
+			value or you may simply update the syntax.
+		</UL>
+		<BR>
+		<BR>
+		<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="snmp2.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="s2proto2.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+
+	</BODY>
+	
+</HTML>

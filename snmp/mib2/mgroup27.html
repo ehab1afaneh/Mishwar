@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MIB II Groups : EGP Group
+		</TITLE>
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>The Exterior Gateway Protocol (egp) Group (1.3.6.1.2.1.8)</B>
+			</I>
+		</FONT>
+		<BR>
+		<BR>
+		
+		The
+		<A HREF="../main/glossar1.html#egp" TARGET="glossary">EGP</A>
+		protocol is used by
+		<A HREF="../main/glossar3.html#router" TARGET="glossary">routers</A>
+		to exchange routing information between
+		different
+		<A HREF="../main/glossar1.html#as" TARGET="glossary">Autonomous System</A>
+		. Indeed, internet routing is organised in areas
+		called Autonomous System. A common protocol, the
+		<A HREF="../main/glossar2.html#igp" TARGET="glossary">Internal Gateway Protocol (IGP)</A>
+		, such as RIP or OSPF is used for routing inside an Autonomous System.
+		However, when neighbouring routers want to exchange information between two
+		Autonomous System, they use an External Gateway Protocol (EGP).
+		<BR>
+		<BR>
+		
+		The egp subtree is composed of variables that records EGP traffic, the EGP
+		Neighbour Table (egpNeighTable) and the EGP Autonomous System variable (egpAs).
+		<BR>
+		<BR>
+		
+		
+		<APPLET CODE="tree.class" HEIGHT=530 WIDTH=250 HSPACE=15 VSPACE=10 ALIGN="LEFT">
+			<PARAM NAME="TITLE" value="egp">
+			<PARAM NAME="IDENTIFIER" value="1.3.6.1.2.1.8">
+			<PARAM NAME="LEVEL1SUB0LABEL0" value="1 egpInMsgs">
+			<PARAM NAME="LEVEL2SUB0LABEL0" value="2 egpInErrors">
+			<PARAM NAME="LEVEL3SUB0LABEL0" value="3 egpOutMsgs">
+			<PARAM NAME="LEVEL4SUB0LABEL0" value="4 egpOutErrors">
+			<PARAM NAME="LEVEL5SUB0LABEL0" value="5 egpNeighTable">
+			<PARAM NAME="LEVEL5SUB1LABEL0" value="1 egpNeighEntry">
+			<PARAM NAME="LEVEL5SUB1LABEL1" value="1 egpNeighSate">
+			<PARAM NAME="LEVEL5SUB1LABEL2" value="2 egpNeighAddr">
+			<PARAM NAME="LEVEL5SUB1LABEL3" value="3 egpNeighAs">
+			<PARAM NAME="LEVEL5SUB1LABEL4" value="4 egpNeighInMsgs">
+			<PARAM NAME="LEVEL5SUB1LABEL5" value="5 egpNeighInErrors">
+			<PARAM NAME="LEVEL5SUB1LABEL6" value="6 egpNeighOutMsgs">
+			<PARAM NAME="LEVEL5SUB1LABEL7" value="7 egpNeighOutErrors">
+			<PARAM NAME="LEVEL5SUB1LABEL8" value="8 egpNeighInErrMsgs">
+			<PARAM NAME="LEVEL5SUB1LABEL9" value="9 egpNeighOutErrMsgs">
+			<PARAM NAME="LEVEL5SUB1LABEL10" value="10 egpNeighStateUps">
+			<PARAM NAME="LEVEL5SUB1LABEL11" value="11 egpNeighStateDowns">
+			<PARAM NAME="LEVEL5SUB1LABEL12" value="12 egpNeighIntervalHello">
+			<PARAM NAME="LEVEL5SUB1LABEL13" value="13 egpNeighIntervalPoll">
+			<PARAM NAME="LEVEL5SUB1LABEL14" value="14 egpNeighMode">
+			<PARAM NAME="LEVEL5SUB1LABEL15" value="15 egpNeighEventTrigger">
+			<PARAM NAME="LEVEL6SUB0LABEL0" value="6 egpAs">
+		</APPLET>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The EGP Neighbour Table
+		</FONT>
+		<BR>
+		<BR>
+		This table provides information about the neighbouring of the system. This
+		information are the
+		<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+		Address of this neighbour, its Autonomous System
+		number, some counts of incoming and outgoing EGP messages and others variables
+		such as timers and a control variable.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The EGP Autonomous System Variable
+		</FONT>
+		<BR>
+		<BR>
+		
+		This variable contains the Autonomous System number for the EGP router. The
+		Autonomous System Number of the sender is included in the header of each EGP
+		message that it transmits.
+		<BR>
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+		<BR CLEAR="ALL">
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mgroup26.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup2.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup28.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+		
+	</BODY>
+	
+</HTML>

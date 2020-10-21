@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP Protocol : UDP
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		<BR>
+		
+		<CENTER>
+		<IMG SRC="images/tudp.gif" WIDTH="492" HEIGHT="50" ALT="UDP" BORDER="0" ALIGN="MIDDLE">	
+		</CENTER>
+		<BR>
+		
+		<A HREF="../main/glossar3.html#udp" TARGET="glossary">UDP</A>
+		has been chosen and recommended for
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP </A>
+		transport protocol. This is fine
+		because at the beginning, SNMP was targeted at managing Internet nodes and the
+		predominant Internet protocol suite
+		<A HREF="../main/glossar3.html#tcpip" TARGET="glossary">TCP/IP</A>
+		. The choice of TCP/IP suite
+		continue to make sense because
+		<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+		became the protocol for commercial backbone
+		networks. And users can count on a TCP/IP implementation available on any
+		type of host and
+		<A HREF="../main/glossar3.html#router" TARGET="glossary">router</A>
+		.
+		<BR>
+		<BR>
+		
+		
+		<A HREF="../main/glossar3.html#tcp" TARGET="glossary">TCP</A>
+		and
+		<A HREF="../main/glossar3.html#udp" TARGET="glossary">UDP</A>
+		provide transport services. But UDP was preferred... This is due to
+		TCP characteristics, it is a complicate protocol and it consume to many memory
+		and CPU resources.
+		<BR>
+		Where as UDP is easy to build and run. Into devices (repeaters and modems)
+		vendors have built simple version of IP and UDP. Thus the total software needed
+		is small and can be stored in a ROM. UDP is well suited to the brief
+		request&nbsp;/&nbsp;
+		<A HREF="../main/glossar3.html#rep" TARGET="glossary">response</A>
+		message used in network management communication.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>Use of UDP Port Numbers</B>
+			</I>
+		</FONT>
+		<BR>
+		
+		UDP application port numbers are used to identify the origin and the
+		destination endpoints of a message. Most standard service operate out of
+		well-known ports, their port number are predefined so that their partner know
+		where they are. Many client application take a port number out of a pool of
+		available port numbers, and they let it free when they are done with it.
+		<BR>
+		<BR>
+		<CENTER>
+			<IMG SRC="../images/p1udp.gif" WIDTH="469" HEIGHT="436" ALT="">
+			<BR>
+			<B>
+				<U>
+					SNMP use of UDP port numbers.
+				</U>
+			</B>
+			
+		</CENTER>
+		<BR>
+	<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+
+			<A HREF="protocol.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="pformat2.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+	<BR>
+<BR>
+
+		
+	</BODY>
+	
+</HTML>

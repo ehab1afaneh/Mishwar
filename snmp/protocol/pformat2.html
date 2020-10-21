@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP Protocol : Message Fromat
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		<BR>
+		<CENTER>
+			<IMG SRC="images/tmessft.gif" WIDTH="371" HEIGHT="44" ALT="MESSAGE FORMAT" BORDER="0" ALIGN="MIDDLE">
+		</CENTER>
+		<BR>
+		
+		The five
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		&nbsp;
+		<A HREF="../main/glossar3.html#pdu" TARGET="glossary">Protocol Data Units (PDU)</A>
+		are in SNMP V.1 :
+		<BR>
+		<BR>
+		
+		<LI>
+		<A HREF="../main/glossar2.html#getreq" TARGET="glossary">Get-request</A>
+		<BR>
+		is used to request the values of one or more MIB variables.
+		<BR>
+		<BR>
+		
+		<LI>
+		<A HREF="../main/glossar2.html#getnreq" TARGET="glossary">Get-next-request</A>
+		<BR>
+		is used to read the values of variables in the MIB but sequentially. It is
+		often used to read though a table of values. After a first read with the
+		get-request, get-next-request are used to read through the remaining rows.
+		<BR>
+		<BR>
+		
+		<LI>
+		<A HREF="../main/glossar3.html#setreq" TARGET="glossary">Set-request</A>
+		<BR>
+		is used to update one of the MIB values.
+		<BR>
+		<BR>
+		
+		<LI>
+		<A HREF="../main/glossar2.html#getrep" TARGET="glossary">Get-response</A>
+		<BR>
+		is returned as an answer to a get-request, a get-next-request or set-request
+		message.
+		<BR>
+		<BR>
+		
+		<LI>
+		<A HREF="../main/glossar3.html#trap" TARGET="glossary">Trap</A>
+		<BR>
+		is used to support significant events (e.g. a cold or a warm restart or a link
+		that has gone down).
+		<BR>
+		<BR>
+		
+		<BR>
+		
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>UNIT OF INFORMATION</B>
+			</I>
+		</FONT>
+		<BR>
+		
+		
+		A get-request or set-request can read or write a single or several items. An
+		item is a simple variable (example : system name). We can also say that SNMP
+		recognises that variables are leaves at the bottom of the naming tree.
+		<BR>
+		<BR>
+		
+		The problem is that a
+		<A HREF="../main/glossar2.html#manager" TARGET="glossary">manager</A>
+		do not know all the variables. Even when a new
+		implementation replace an old one, he do not know all the variable. The
+		get-next-request is helpful then. The manager is able to walk through the
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		using the get-next-request command. Thus, the manager know all the
+		<A HREF="../main/glossar2.html#oi" TARGET="glossary">OBJECT IDENTIFIER</A>
+		. When MIB variable are added, the old meanings of the MIB do not
+		change and there are new values in the
+		<A HREF="../main/glossar3.html#table" TARGET="glossary">table</A>
+		.
+		<BR>
+		<BR>
+		
+		<BR>
+		
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>The MESSAGE FORMAT in SMMP
+</B>			</I>
+		</FONT>
+		<BR>
+		How does it works ? The next figure shows quickly how.
+		<BR>
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="../images/p2messft.gif" WIDTH="421" HEIGHT="211" ALT="Manager talking to a new agent implementation">
+			<BR>
+			
+			<B>
+				<U>
+					Manager talking to a new agent implementation.
+				</U>
+			</B>
+		</CENTER>
+		
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			
+			Get-request and get-response Message Formats
+			
+		</FONT>
+		<BR>
+		<BR>
+		
+		The fields contained in those messages are the following one :
+		<BR>
+		<LI>
+		Version : version of SNMP (0 is for version 1)
+		<LI>
+		Community : password used to control access to node information. It does not
+		provide a lot of protection against spying on the
+		<A HREF="../main/glossar2.html#lan" TARGET="glossary">LAN</A>
+		.
+		<LI>
+		Command : one of the five message type.
+		<LI>
+		Request ID : used to correlate the request and its answer. Because a station
+		can shoot hundreds of request at the same time.
+		<LI>
+		Error status : in response, it is used to indicate if the request was
+		successful or not.
+		<LI>
+		Error index : in case of error indicates which variable in the request caused
+		problem.
+		<LI>
+		A list of pairing
+		<A HREF="../main/glossar2.html#oi" TARGET="glossary">OBJECT IDENTIFIER</A>
+		(string of integer) and variable value
+		of the parameter pointed by the OBJECT IDENTIFIER.
+		<BR>
+		<BR>
+		
+		The  get-request and the get-response contain the same fields. So it is easy
+		for an
+		<A HREF="../main/glossar1.html#agent" TARGET="glossary">agent</A>
+		to build an answer to a request just by filling the holes in the
+		get-request. Thus, get-request contains fields set a 0 or NULL values.
+		<BR>
+		<BR>
+		
+		A get-request can be sent for multiple variables. Then it contains the list of
+		the variables we want to be retrieved. The get-response  fills each value from
+		each variable of the list.
+		<BR>
+		<BR>
+		
+		The problem with SNMP version 1, is that if for one of the requested variable,
+		the agent is unable to provide a value, the whole get-request will fail. Even
+		if it is one out of the ten variables we wanted to retrieve.
+		<BR>
+		The maximal number of value to retrieve is limited by the maximum message size
+		handle by the manager and the agent. This maximum size is expected to be over
+		484 bytes in SNMP standards.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			
+			Get-next-request
+			
+		</FONT>
+		<BR>
+		<BR>
+		
+		The get-next-request, in its simplest use, is for a walk through a
+		<A HREF="../main/glossar3.html#table" TARGET="glossary">table</A>
+		one row
+		at a time.
+		<BR>
+		The get-next-request have the same overall format as get-request and
+		get-response. The Command type identifies which is which.
+		<BR>
+		<BR>
+		Different sets of variables are appropriate for bridges, routers and hosts. The
+		variables in a pair of routers may be different because the
+		<A HREF="../main/glossar2.html#interf" TARGET="glossary">interface</A>
+		can be
+		different in the two devices (e.g. one is Ethernet and
+		<A HREF="../main/glossar1.html#fddi" TARGET="glossary">FDDI</A>
+		LANs, the other
+		<A HREF="../main/glossar3.html#tr" TARGET="glossary">Token-Rings</A>
+		and T1 lines).
+		<BR>
+		<BR>
+		
+		To know what variables are stored at a node, we can manage the node by manually
+		creating a master configuration database in a management station. We could,
+		in this database, record the type of node and the categories of MIB variables
+		supported at the node.
+		<BR>
+		In this case we would have to maintain the database by hand, each time by adding
+		and deleting the entries each time the configuration changed.
+		<BR>
+		<BR>
+		
+		The other way to know the stored variable at the node is to implement a
+		management application that will dynamically discovers nodes of the network and
+		ask the node what are the variables and what they support. This second method
+		is the way that good management station operates. The station can operate this
+		way because of the get-next-request operator.
+		<BR>
+		<BR>
+		
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			
+			The Communities
+			
+		</FONT>
+		<BR>
+		The access to an agent is restricted by the community. The
+		<A HREF="../main/glossar2.html#manager" TARGET="glossary">manager</A>
+		sending a
+		message to the agent gives its community. The community defines what level of
+		access the manager have. Agents have to be configured in order to know one or
+		more community, and which right (level of access) each community owns.
+		<BR>
+		<BR>
+		There is also community right for traps. The agent needs to know where to send
+		its traps. It is also configurable.
+		<BR>
+		<BR>
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="pudp1.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="protocol.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="ptrap3.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+
+
+	</BODY>
+	
+</HTML>

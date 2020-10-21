@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MONITORING : Filter
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<BR>
+<CENTER>		
+		<IMG SRC="images/tfilter.gif" WIDTH="104" HEIGHT="38" ALT=""FILTER>
+		<BR>
+		<FONT SIZE="+2" Face="comic sans ms">
+			(1.3.6.1.2.1.16.7)
+		</FONT>
+		</CENTER>
+		<BR>
+		
+		With this group, the 
+		<A HREF="../main/glossar2.html#monitor" TARGET="glossary">monitor</A>
+		 is able to let us pick the traffic we want to
+		watch. The traffic is watched and filtered by a series of filter tests. This
+		allows to extract the logical stream of data (called channel) we want. A filter
+		tests two things :
+		<BR>
+		<DD>
+		<LI TYPE="CIRCLE">
+		Presence or not of data patterns.
+		<DD>
+		<LI TYPE="CIRCLE">
+		Presence or not of particular errors.
+		<BR>
+		<BR>
+		
+		To be accepted by the filter, traffic must pass the data pattern-matching test
+		and the status-check error.
+		<BR>
+		
+		<LI TYPE="DISC">
+		To define a Pattern Matching filter we have to set :
+		<BR>
+		
+		<DD>
+		<LI TYPE="CIRCLE">
+		an offset from the begining of a packet. The pattern checking will start here.
+		<BR>
+		
+		<DD>
+		<LI TYPE="CIRCLE">
+		the string of octets that forms the data pattern to be matched.
+		<BR>
+		<BR>
+		
+		<LI TYPE="DISC">
+		Error-Checking Filter
+		<BR>
+		This criteria let us choose traffic with or without selected errors. The result
+		of the error checking is stored in the packet status variable. The monitor
+		check each 
+		<A HREF="../main/glossar3.html#packet" TARGET="glossary">packet</A>
+		 for errors and compute its packet status.
+		<BR>
+		<BR>
+		To do the comparison, a mask is defined. The comparison is made only for the
+		packet status bits that corresponds to mask bits with value 1. Another mask
+		gives
+		the bits that we want to match. A channel is defined with one or more filters.
+		This allows to complicate a lot the conditions.
+		<BR>
+		<BR>
+		
+		<LI  TYPE="DISC">
+		Filter Table
+		<BR>
+		Each entry in this table defines a filter. Each filter provides a set of
+		criteria in order to screen every packets and decides whether it belongs to a
+		logical channel or not.
+		<BR>
+		<BR>
+		
+		<LI>
+		Channel Table
+		<BR>
+		Channels are used to define a stream of packets that will be captured. Also,
+		when we search for rare but important patterns, we want to generate an event
+		whenever a packet is selected for the channel.
+		<BR>
+		
+		The Channel table contains the control parameters needed to complete the
+		description of a channel. We have to identify the interface that will be
+		watched. A control variable is used to turn a channel on or off.
+		<BR>
+		<BR>
+
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="momatri5.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mormon0.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mopktcp7.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+
+	</BODY>
+	
+</HTML>

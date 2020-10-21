@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP ASN.1 : B E R
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<BR>
+		<CENTER>
+		<IMG SRC="images/tber.gif" WIDTH="478" HEIGHT="44" ALT="BER (Basic Encoding Rules)">
+</CENTER>		<BR>
+		
+		
+		A computer program written in
+		<A HREF="../main/glossar1.html#asn1" TARGET="glossary">ASN.1</A>
+		must be translated (compiled) into
+		machine-usable format. This compilation rules are the
+		<A HREF="../main/glossar1.html#ber" TARGET="glossary">Basic Encoded Rules</A>
+		. BER
+		and ASN.1 were created at the same time.
+		<BR>
+		<BR>
+		
+		The principle of BER is that each field has an introducer that indicates the
+		datatype of the contents and its length. The basic pattern used to encode a
+		value is :
+		<BR>
+		<BR>
+		
+		<TT>
+			&nbsp;&nbsp;&nbsp;[identifier] [length (of the contents)] [contents]
+		</TT>
+		<BR>
+		<BR>
+		
+		
+		The identifier declares the datatype of the contents. This datatype can be
+		simple (such as an INTEGER) and then it is defined as a primitive type, or it
+		can be more complex (such as a SEQUENCE). In this last case, each content field
+		is introduced by its own identifier and length :
+<PRE>
+	[identifier SEQUENCE] [length SEQUENCE]
+		[identifier field 1] [length field 1] [value field 1]
+		[identifier field 2] [length field 2] [value field 2]
+		...
+		[identifier field N] [length field N] [value field N]
+     [SEQUENCE] (optional)
+</PRE>
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		messages are constructed using the SEQUENCE datatype. Each
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		variable
+		that is carried in a SNMP message is required to be a simple datatype.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>BER Identifiers</B>
+			</I>
+		</FONT>
+		<BR>
+		
+		A BER identifier is a number (one or some bytes) that announces the following
+		datatype.
+		<BR>
+		The identifier is well-structured to allow the representation of three
+		information.
+		<BR>
+		<LI>
+		The datatype classes (coded on the highest-order two bits):
+		<UL TYPE="CIRCLE">
+			<LI>
+			Universal (00) : Available for use within any protocol. The
+			<A HREF="../main/glossar3.html#pt" TARGET="glossary">primitive datatypes</A>
+			and the basic constructors (such as SEQUENCE) are universal.
+			<LI>
+			Application (01) : Available within a specific application. For example, the
+			IpAddress datatype is available for use throughout the
+			<A HREF="../main/glossar3.html#tcpip" TARGET="glossary">TCP/IP</A>
+			network
+			management application. IpAddress, Counter,
+			<A HREF="../main/glossar2.html#gauge" TARGET="glossary">Gauge</A>
+			... datatypes belong to the
+			application class.
+			<LI>
+			Context-specific (10) : This datatype is contained in a larger datatype. It is
+			the default class, so it is often used for SEQUENCE and SEQUENCE OF datatypes.
+			<LI>
+			Private (11) : Included so that ASN.1 could be used by private organisations
+			to define proprietary datatypes.
+		</UL>
+		
+		<LI>
+		The datatype length (coded on the third highest-order bit) :
+		<UL TYPE="CIRCLE">
+			<LI>
+			Primitive (0)
+			<LI>
+			Constructed (1)
+		</UL>
+		<BR>
+		
+		<LI>
+		The remainder of the identifier (last bits) :
+		<BR>
+		it is a numeric tag associated with a datatype. Tags ranging from 0 to 30 can be
+		associated with the remaining 5 bits of the octets. For larger tags, these 5
+		bits are set to 111111, and one or more subsequent octets are used to encode
+		the tag.
+		<BR>
+		<A NAME="lblstruct"></A>
+		As shown by
+		<A HREF="ASN1LabelStructure.html"><B> the following examples</B></A>
+		.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>IMPLICIT datatype</B>
+			</I>
+		</FONT>
+		<BR>
+		The IMPLICIT datatype allows to cut down the overhead from encoding datatypes.
+		When we define a new type, it often uses an old one (primitive datatypes in
+		general). The consequence is a pileup of introducers :
+		<BR>
+<PRE>
+[identifier] [length] [ [identifier] [length] [contents] ]
+</PRE>
+		Example of the IpAddress datatype :
+<PRE>
+	           [identifier-for-IpAddress] [length] [contents]
+contents = [identifier-for-OCTET-STRING] [length] [string]
+</PRE>
+		<BR>
+		Using the term IMPLICIT in the datatype, we can avoid identifier pileup :
+		<BR>
+<PRE>
+[identifier-for-IpAddress] [length] [contents = OCTET STRING]
+</PRE>
+		
+		<A NAME="dttidt"></A>
+		Identifiers for ASN.1 datatypes used in
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP V1</A>
+		and
+		<A HREF="../main/glossar3.html#v2" TARGET="glossary">V2</A>
+		are
+		<A HREF="asn1tablbl.html"><B> the following one</B></A>
+		.
+		<BR>
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Encoding an OBJECT IDENTIFIER
+		</FONT>
+		<BR>
+		<BR>
+		The encoding of an OBECT IDENTIFIER has particularly rules. In SNMP all the
+		objects are in the subtree ISO.ORG. So all the OBJECT IDENTIFIERS in SNMP start
+		with 1.3.
+		<BR>
+		The first two digits x.y of an OBJECT IDENTIFIER (1.3 in SNMP) are coded using
+		the formula 40x + y. Then, 1.3 is coded 43 or 2B in hex.
+		<BR>
+		There is no limit for the size of the numeric labels. So there are rules to
+		encode big numbers :
+		<BR>
+		<UL>
+			<LI>
+			use only the low-order 7 bits of each octet for data.
+			<LI>
+			use the eighth bit as a more flag
+		</UL>
+		<BR>
+		If a number is 127 or less, it will fill 7 bits and the eighth bit is 0.
+		Otherwise, if a number is 128 or higher, it will be coded on several octets
+		where a eighth bit set to 1 indicates that 2 or more octets must be combined to
+		code the number. For example 1.3.6.1.1.4.134.129 is encoded :
+		<BR>
+		<UL>
+			B 06 01 01 04
+			<U>
+				81 06
+			</U>
+			&nbsp;
+			<U>
+				81 01
+			</U>
+		</UL>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Data Transmission
+		</FONT>
+		<BR>
+		<BR>
+		
+		In the Basic Encoded Rules, bits in an octets are
+		numbered : 8 7 6 5 4 3 2 1 0
+		<BR>
+		Bit 8 is the most significant bit, and is transmitted first. A multi-bytes
+		integer is represented with the most significant octet first, and this octet is
+		sent onto the network first.
+		<BR>
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+		<BR>
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="amacro3.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="asn1.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="../mib2/indexmib.html" TARGET="_top"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+
+		
+		
+		
+	</BODY>
+	
+</HTML>

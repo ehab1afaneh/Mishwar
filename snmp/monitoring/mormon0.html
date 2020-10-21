@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MONITORING : RMON MIB
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="images/trmonmib.gif" WIDTH="213" HEIGHT="37" ALT="RMON MIB (RMON I)">
+			
+		</CENTER>
+		<BR>
+		
+		It was in 1991, the Remote Network Monitoring
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		was published in
+		<A HREF="../main/glossar3.html#rfc" TARGET="glossary">RFC 1271</A>
+		,
+		known as "RMON MIB". This contains the tools needed by a network management
+		station to configure and control a
+		<A HREF="../main/glossar2.html#monitor" TARGET="glossary">monitor</A>
+		, read out data and reports, and
+		receive
+		<A HREF="../main/glossar1.html#alarm" TARGET="glossary">alarms</A>
+		.
+		<BR>
+		<BR>
+		There are rules to
+		<A HREF="../main/glossar3.html#rmon" TARGET="glossary">RMON</A>
+		in order to maintain the system in order to run. Those
+		rules give to different operators many rights. There are systems
+		that can give rights to one operator, or that can share them between different
+		users
+		(example one manage one
+		<A HREF="../main/glossar2.html#interf" TARGET="glossary">interface</A>
+		and another one, the other interface of the
+		device). It depends on choices made by vendors. Users have to select their own
+		administrative model.
+		<BR>
+		
+		The mechanism to manage the device is the following one : the operator is
+		identified by a variable, which is issued to implement the desired
+		administrative model. Once control table is complete (index assigned and has
+		valid status), the monitor starts the job required by the entry.
+		<BR>
+		<BR>
+		
+		RFC 1271 Remote Network Monitoring Management Information Base provides many
+		features for monitoring and a large number of general variables.
+		<BR>
+		<BR>
+		Monitor operator can configure the monitor to show data in the most
+		significant way for the user. The operator sets the exact parameters he wants :
+		<BR>
+		How long should the monitor keep the data, how long is a survey...
+		<BR>
+		Two operators can ask a monitor a different survey type for the same
+		parameter&nbsp;; if 		the monitor can hold it, it will be done.
+		<BR>
+		<BR>
+		To make the difference between several
+		<A HREF="../main/glossar2.html#manager" TARGET="glossary">manager's</A>
+		requests, there are two
+		control table variables. One identifies who wrote the request and the
+		other indicates the current status of the control table entry.
+		<BR>
+		These variables are labelled OwnerString, it contains information about the
+		owner of the entry :
+		<BR>
+		<LI>
+		the administrative name
+		<LI>
+		<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+		address
+		<LI>
+		management station name
+		<LI>
+		operator’s name
+		<LI>
+		location or phone number
+		<BR>
+		
+		
+		and EntryStatus is an integer : valid(1), createRequest(2), underCreation(3),
+		invalid(4)). It starts with a set that create the request in the control table :
+		<BR>
+		<LI>
+		the request is initialised and the entry becomes valid
+		<LI>
+		the operator create the request
+		<LI>
+		the monitor gather information
+		<LI>
+		the operator sets the invalid condition to end the task
+		<BR>
+		<BR>
+		
+		There is a large number of groups in the RMON MIB. The order hides the close
+		relationship between groups. They are the following one  :
+		<BR>
+		<B>
+			<LI>
+			<A HREF="mostati1.html">statistics (1.3.6.1.2.1.16.1)</A>
+			<LI>
+			<A HREF="mohisto2.html">history (1.3.6.1.2.1.16.2)</A>
+			<LI>
+			<A HREF="mohost3.html">host (1.3.6.1.2.1.16.4)</A>
+			<LI>
+			<A HREF="mohostn4.html">hostTopN (1.3.6.1.2.1.16.5)</A>
+			<LI>
+			<A HREF="momatri5.html">matrix (1.3.6.1.2.1.16.6)</A>
+		</B>
+		<BR>
+		<BR>
+		
+		
+		
+		<!-- Transition for the following Groups. -->
+		The following groups are working together. They work as a whole, as a
+		diagnostic team. They are used in case of network problems, when a particular
+		kind of traffic needs to be watched precisely. The event group, packet group
+		and filter group are linked to give a fine tuned of diagnostic tools.
+		<BR>
+		<BR>
+		
+		
+		<LI>
+		<B>
+			<A HREF="mofilte6.html">filter (1.3.6.1.2.1.16.7)</A>
+			<LI>
+			<A HREF="mopktcp7.html">packet capture (1.3.6.1.2.1.16.8)</A>
+			<LI>
+			<A HREF="moalarm8.html">alarms (1.3.6.1.2.1.16.3)</A>
+			<LI>
+			<A HREF="moevent9.html">events (1.3.6.1.2.1.16.9)</A>
+		</B>
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Configuration, Control, and Data Tables
+		</FONT>
+		<BR>
+		<BR>
+		
+		A monitor is very powerful and can do a lot, but you have to know how to ask him
+		in order to get what you want. Thus, the configuration for this type of device
+		is very
+		important. This MIB contains a lot of configuration parameters.
+		<BR>
+		<BR>
+		
+		A control table configures the information to be monitored, for example there is
+		the time interval for capture that must be set with the amount of data to keep
+		and record. A separate data table holds the information that are gathered. One
+		control entry is linked to the data that is gathered.
+		
+		<BR>
+		<BR>
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="monitoring.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+
+	</BODY>
+	
+</HTML>

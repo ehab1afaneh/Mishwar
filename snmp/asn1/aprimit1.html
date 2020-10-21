@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP ANS.1 : Primitive Datatypes
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+	<BR>
+	<CENTER>
+		<IMG SRC="images/tprimda.gif" WIDTH="345" HEIGHT="46" ALT="Primitive datatypes">	
+			
+		</CENTER>
+<BR>
+		SNMP version 1 uses this following datatypes :
+		<UL>
+			INTEGER : a whole number (number of interfaces on a system).
+			<BR>
+			OCTET STRING : a string of octets which is used to represent hexadecimal data
+			(physical address of an interface).
+			<BR>
+			<A HREF="../main/glossar2.html#oi" TARGET="glossary">OBJECT IDENTIFIER</A>
+			 : a string of numbers derived for a naming tree, used to
+			identify an object.
+			<BR>
+			NULL : an empty placeholder.
+			<BR>
+			ENUMERATED : a limited set of integers with an assigned meaning.
+			<BR>
+			BOOLEAN : an integer with values true (1) or false (2).
+			<BR>
+		</UL>
+		
+		For a BIT STRING that is 32 bits less, turn it into a 32-bit INTEGER
+		(calculating the number represented by the bits). If there are more than 32
+		bits, turn it into an OCTET STRING.
+		<BR>
+		<BR>
+		
+		
+		A few 
+		<A HREF="../main/glossar3.html#pt" TARGET="glossary">primitive datatypes</A>
+		, specific to 
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		 applications, were added to the
+		built-in primitives. These included :
+		<UL>
+			Counter (integer which increases until a maximum value and goes back to zero)
+			<BR>
+			Gauge (integer which increases and decreases)
+			<BR>
+			TimeTicks
+			<BR>
+			IpAddress
+			<BR>
+			NetworkAddress
+			<BR>
+			...
+		</UL>
+		
+		Simple datatypes added to 
+		<A HREF="../main/glossar3.html#v2" TARGET="glossary">SNMP v2</A>
+		 :
+		<UL>
+			BIT STRING : hold enumerated lists of flags
+			<BR>
+			Integer32 : identical to INTEGER, range is -2
+			<SUP>
+				31
+			</SUP>
+			 to 2
+			<SUP>
+				31
+			</SUP>
+			-1
+			<BR>
+			Counter32 : identical to COUNTER, range is 0 to 2
+			<SUP>
+				32
+			</SUP>
+			-1
+			<BR>
+			Gauge32 : identical to GAUGE, range is 0 to 2
+			<SUP>
+				32
+			</SUP>
+			-1
+			<BR>
+			NsapAddress : for OSI addresses
+			<BR>
+			Counter64 : range is 0 to 2
+			<SUP>
+				64
+			</SUP>
+			<BR>
+			Uinteger32 : unsigned integer, range is 0 to 2
+			<SUP>
+				32
+			</SUP>
+			-1
+		</UL>
+		<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+	
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+		
+			<A HREF="asn1.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="aconstr2.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+
+
+	</BODY>
+	
+</HTML>

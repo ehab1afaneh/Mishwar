@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP version 3
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<CENTER>
+			<IMG SRC="images/snmp3tit.gif" WIDTH="215" HEIGHT="46" ALT="SNMP Version 3">
+		</CENTER>
+		<BR>
+		
+		
+		The third version of the
+		<A HREF="../main/glossar3.html#v3" TARGET="glossary">Simple Network Management Protocol (SNMPv3)</A>
+		was
+		published as proposed standards in
+		<A HREF="../main/glossar3.html#rfc" TARGET="glossary">RFCs</A>
+		2271 to 2275 in January 1998. This
+		version is build upon the two first versions of
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		and so it reuse the
+		<A HREF="../main/glossar3.html#v2" TARGET="glossary">SNMPv2</A>
+		standards documents (RFC 1902 to RFC 1908).
+		<BR>
+		SNMP v3 Framework augments the original SNMP and the SNMPv2 specifications
+		with additional security and administration capabilities.
+		<BR>
+		<BR>
+		
+		The new features of SNMPv3 include:
+		<UL>
+			<I>
+				Security
+			</I>
+			<UL>
+				<A HREF="../main/glossar1.html#authen" TARGET="glossary">authentication</A>
+				and
+				<A HREF="../main/glossar3.html#privacy" TARGET="glossary">privacy</A>
+				<BR>
+				authorisation and
+				<A HREF="../main/glossar1.html#accessc" TARGET="glossary">access control</A>
+				<BR>
+			</UL>
+			<I>
+				Administrative Framework
+			</I>
+			<BR>
+			<UL>
+				naming of entities
+				<BR>
+				people and policies
+				<BR>
+				user names and key management
+				<BR>
+				notification destinations
+				<BR>
+				proxy relationships
+				<BR>
+				remotely configurable via SNMP operations
+			</UL>
+		</UL>
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>SNMPv3 Security and Administration</B>
+			</I>
+		</FONT>
+		<BR>
+		<BR>
+		The SNMPv3 document series defined by the SNMPv3 Working Group consists of five
+		documents at this time (RFC 2271 to RFC 2275).
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Architecture&nbsp;/&nbsp;Security and Administration
+		</FONT>
+		<BR>
+		<BR>
+		
+		It is the purpose of the SNMPv3 Architecture document, RFC 2271, to define an
+		architecture for defining SNMP Management Frameworks. It defines a number of
+		terms and clarifies and extends the naming of
+		<UL>
+			<LI>
+			engines and applications
+			<BR>
+			<LI>
+			entities (service providers such as the engines in agents and managers)
+			<BR>
+			<LI>
+			identities (service users)
+			<BR>
+			<LI>
+			management information, including support for multiple logical contexts.
+		</UL>
+		
+		
+		The document contains a small
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		module which is implemented by all
+		authoritative SNMPv3 protocol engines. An authoritative engine is the receiver
+		of a message such as a get or set, or the sender if the message does not
+		require a response.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Message Processing and Dispatching
+		</FONT>
+		<BR>
+		<BR>
+		
+		
+		The Message Processing and Dispatching for the SNMP, proposed in RFC 2272,
+		defines the procedures for dispatching multiple versions of SNMP messages to
+		the proper SNMP Message Processing Models. It also provides the way to dispatch
+		<A HREF="../main/glossar3.html#pdu" TARGET="glossary">PDUs</A>
+		to SNMP applications. Finally, this document describes one Message
+		Processing Model - the SNMPv3 Message Processing Model.
+		<BR>
+		<BR>
+		
+		An SNMPv3 protocol engine MUST support at least one Message Processing Model
+		and MAY support more than one. For example, in a multilingual system which
+		provides simultaneous support of SNMPv3 and SNMPv1 and/or SNMPv2.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			SNMPv3 Applications
+		</FONT>
+		<BR>
+		<BR>
+		
+		Five types of application which can be associated with an SNMP engine are
+		described in RFC 2273. These applications are :
+		<UL>
+			<LI>
+			Command Generators
+			<LI>
+			Command Responders
+			<LI>
+			Notification Originators
+			<LI>
+			Notification Receivers
+			<LI>
+			Proxy Forwarders.
+		</UL>
+		
+		
+		The document also defines MIB modules for specifying targets of management
+		operations, for notification filtering, and for proxy forwarding.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			User-based Security Model (USM)
+		</FONT>
+		<BR>
+		<BR>
+		
+		It was proposed in RFC 2274 and it describes the User-based Security Model for
+		SNMPv3. It defines the Elements of Procedure for providing SNMP message-level
+		security. The USM protects the user against four threats, which are :
+		<UL>
+			<LI>
+			modification of information
+			<LI>
+			masquerade
+			<LI>
+			message stream modification
+			<LI>
+			disclosure (optionally)
+		</UL>
+		
+		The USM uses MD5 (Message Digest Algorithm) and the Secure Hash Algorithm 		to
+		provide data integrity, to directly protect against data modification attacks,
+		to
+		indirectly provide data origin authentication, and to defend against masquerade
+		attacks. It also uses Data Encryption Standard (DES) to protect against
+		disclosure.
+		<BR>
+		<BR>
+		
+		The document also includes a MIB for remotely monitoring and managing the
+		configuration parameters for the USM.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			View-based Access Control Model (VACM)
+		</FONT>
+		<BR>
+		<BR>
+		
+		It was proposed in RFC 2275 and it describes the View-based Access Control
+		Model for SNMPv3. It defines the Elements of Procedure for controlling access
+		to management information.
+		<BR>
+		<BR>
+		
+		The VACM can simultaneously be associated in a single engine implementation
+		with multiple Message Processing Models and multiple Security Models.
+		<BR>
+		<BR>
+		
+		
+		The document also includes a MIB for remotely managing the configuration
+		parameters for the View-based Access Control Model.
+		<BR>
+		<BR>
+		<BR>
+		
+		
+	</BODY>
+	
+</HTML>

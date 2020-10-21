@@ -1,0 +1,559 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			- Identifiers used in ASN.1 Datatypes ( SNMP v1 and v2 ) 		
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#ff0080" VLINK="#800040" ALINK="#0080c0">
+		
+		<FONT SIZE="+3">
+			<CENTER>
+				Identifiers for ASN.1 datatypes used in SNMP V1 and V2
+				<BR>
+			</CENTER>
+			
+		</FONT>
+		<BR>
+		<CENTER>
+			
+			<TABLE  width="80%" border="1" cellspacing="1" cellpadding="4" BGCOLOR="#FFFAAD" >
+				<TR>
+					<!-- Row 1 Column 1 -->
+					<TD WIDTH="50%" BGCOLOR="#FFFAFF">
+						<B>
+							TYPES
+						</B>
+					</TD>
+					<!-- Row 1 Column 2 -->
+					<TD WIDTH="10%" BGCOLOR="#FFFAFF">
+						<B>
+							<center>
+								Identifier in
+								<BR>
+								Hex
+							</center>
+						</B>
+					</TD>
+					<!-- Row 1 Column 3 -->
+					<TD WIDTH="40%" BGCOLOR="#FFFAFF">
+						<B>
+							Notes
+						</B>
+					</TD>
+				</TR>
+				<TR BGCOLOR="#FACAAD">
+					<!-- Row 2 Column 1 -->
+					<TD >
+						<I>
+							<B>
+								Primitive ASN1
+							</B>
+						</I>
+					</TD>
+					<!-- Row 2 Column 2 -->
+					<TD >
+<PRE>
+
+</PRE>
+					</TD>
+					<!-- Row 2 Column 3 -->
+					<TD >
+<PRE>
+
+</PRE>
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 3 Column 1 -->
+					<TD >
+						INTEGER
+					</TD>
+					<!-- Row 3 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								02
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 3 Column 3 -->
+					<TD >
+						UNIVERSAL,  primitive, 2
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 4 Column 1 -->
+					<TD >
+						BIT STRING
+					</TD>
+					<!-- Row 4 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								03
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 4 Column 3 -->
+					<TD >
+						UNIVERSAL,  primitive, 3
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 5 Column 1 -->
+					<TD >
+						OCTET STRING
+					</TD>
+					<!-- Row 5 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								04
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 5 Column 3 -->
+					<TD >
+						UNIVERSAL,  primitive, 4
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 6 Column 1 -->
+					<TD >
+						NULL
+					</TD>
+					<!-- Row 6 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								05
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 6 Column 3 -->
+					<TD >
+						UNIVERSAL,  primitive, 5
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 7 Column 1 -->
+					<TD >
+						OBJECT IDENTIFIER
+					</TD>
+					<!-- Row 7 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								06
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 7 Column 3 -->
+					<TD >
+						UNIVERSAL,  primitive, 6
+					</TD>
+				</TR>
+				<TR BGCOLOR="#656CF7">
+					<!-- Row 8 Column 1 -->
+					<TD >
+						<I>
+							Constructed ASN.1
+						</I>
+					</TD>
+					<!-- Row 8 Column 2 -->
+					<TD >
+<PRE>
+</PRE>
+					</TD>
+					<!-- Row 8 Column 3 -->
+					<TD >
+<PRE>
+</PRE>
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 9 Column 1 -->
+					<TD >
+						SEQUENCE, SEQUENCE OF
+					</TD>
+					<!-- Row 9 Column 2 -->
+					<TD >
+						<B>
+							<DIV align="center">
+								30
+							</DIV>
+						</B>
+					</TD>
+					<!-- Row 9 Column 3 -->
+					<TD >
+						UNIVERSAL, Constructed, 16
+					</TD>
+				</TR>
+				<TR BGCOLOR="#FACAAD">
+					<!-- Row 10 Column 1 -->
+					<TD >
+						<I>
+							<B>
+								Primitive SNMP (type of class APPLICATION)
+							</B>
+						</I>
+					</TD>
+					<!-- Row 10 Column 2 -->
+					<TD >
+<PRE>
+
+</PRE>
+					</TD>
+					<!-- Row 10 Column 3 -->
+					<TD >
+<PRE>
+
+</PRE>
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 11 Column 1 -->
+					<TD >
+						IpAdress
+					</TD>
+					<!-- Row 11 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								40
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 11 Column 3 -->
+					<TD >
+						APPLICATION, primitive, 0
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 12 Column 1 -->
+					<TD >
+						Counter (Counter32 for SNMP V2)
+					</TD>
+					<!-- Row 12 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								41
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 12 Column 3 -->
+					<TD >
+						APPLICATION, primitive, 1
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 13 Column 1 -->
+					<TD >
+						Gauge (Gauge32 for SNMP V2)
+					</TD>
+					<!-- Row 13 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								42
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 13 Column 3 -->
+					<TD >
+						APPLICATION, primitive, 2
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 14 Column 1 -->
+					<TD >
+						TimeTicks
+					</TD>
+					<!-- Row 14 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								43
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 14 Column 3 -->
+					<TD >
+						APPLICATION, primitive, 3
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 15 Column 1 -->
+					<TD >
+						Opaque
+					</TD>
+					<!-- Row 15 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								44
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 15 Column 3 -->
+					<TD >
+						APPLICATION, primitive, 4
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 16 Column 1 -->
+					<TD >
+						NsapAdress
+					</TD>
+					<!-- Row 16 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								45
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 16 Column 3 -->
+					<TD >
+						APPLICATION, primitive, 5
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 17 Column 1 -->
+					<TD >
+						Counter64
+					</TD>
+					<!-- Row 17 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								46
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 17 Column 3 -->
+					<TD >
+						APPLICATION, primitive, 6
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 18 Column 1 -->
+					<TD >
+						UIInteger32
+					</TD>
+					<!-- Row 18 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								47
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 18 Column 3 -->
+					<TD >
+						APPLICATION, primitive, 7
+					</TD>
+				</TR>
+				<TR BGCOLOR="#FACAAD">
+					<!-- Row 19 Column 1 -->
+					<TD >
+						<I>
+							<B>
+								Context Specific SNMP
+							</B>
+						</I>
+					</TD>
+					<!-- Row 19 Column 2 -->
+					<TD >
+<pre>
+
+</pre>
+					</TD>
+					<!-- Row 19 Column 3 -->
+					<TD >
+<pre>
+
+</pre>
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 20 Column 1 -->
+					<TD >
+						GetRequest-PDU
+					</TD>
+					<!-- Row 20 Column 2 -->
+					<TD >
+						<B>
+							<DIV align="center">
+								A0
+							</DIV>
+						</B>
+					</TD>
+					<!-- Row 20 Column 3 -->
+					<TD >
+						Context Specific, built, 0
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 21 Column 1 -->
+					<TD >
+						GetNextRequest-PDU
+					</TD>
+					<!-- Row 21 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								A1
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 21 Column 3 -->
+					<TD >
+						Context Specific, built, 1
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 22 Column 1 -->
+					<TD >
+						GetResponse-PDU
+						<BR>
+						(Response-PDU for SNMP V2)
+					</TD>
+					<!-- Row 22 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								A2
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 22 Column 3 -->
+					<TD >
+						Context Specific, built, 2
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 23 Column 1 -->
+					<TD >
+						SetRequest-PDU
+					</TD>
+					<!-- Row 23 Column 2 -->
+					<TD >
+						<B>
+							<DIV align="center">
+								A3
+							</DIV>
+						</B>
+					</TD>
+					<!-- Row 23 Column 3 -->
+					<TD >
+						Context Specific, built, 3
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 24 Column 1 -->
+					<TD >
+						Trap-PDU (Obsolete in SNMP V2)
+					</TD>
+					<!-- Row 24 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								A4
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 24 Column 3 -->
+					<TD >
+						Context Specific, built, 4
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 25 Column 1 -->
+					<TD >
+						GetBulkRequest-PDU
+						<BR>
+						(only in SNMP V2)
+					</TD>
+					<!-- Row 25 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								A5
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 25 Column 3 -->
+					<TD >
+						Context Specific, built, 5
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 26 Column 1 -->
+					<TD >
+						InformRequest-PDU
+						<BR>
+						(only ub SNMP V2)
+					</TD>
+					<!-- Row 26 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								A6
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 26 Column 3 -->
+					<TD >
+						Context Specific, built, 6
+					</TD>
+				</TR>
+				<TR>
+					<!-- Row 27 Column 1 -->
+					<TD >
+						SNMPv2-Trap-PDU
+						<BR>
+						(only in SNMP V2)
+					</TD>
+					<!-- Row 27 Column 2 -->
+					<TD >
+						<DIV align="center">
+							<B>
+								A7
+							</B>
+						</DIV>
+					</TD>
+					<!-- Row 27 Column 3 -->
+					<TD >
+						Context Specific, built, 7
+					</TD>
+				</TR>
+				
+				
+				
+			</TABLE>
+		</CENTER>
+		
+<P>
+
+<P>
+
+<BR>
+<HR WIDTH="50%" ALIGN=CENTER>
+<CENTER>
+<A HREF="aber4.html#dttidt">
+<IMG SRC="../images/menu.gif" WIDTH="168" HEIGHT="32" 
+ALT="- Last Menu -" BORDER="0"></A>
+</CENTER>
+<BR>		
+	</BODY>
+	
+</HTML>

@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MIB II Groups : Transmission Control (TCP) Group
+		</TITLE>
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>The Transmission Control Protocol (tcp) Group (1.3.6.1.2.1.6)</B>
+			</I>
+		</FONT>
+		<BR>
+		<BR>
+		
+		The
+		<A HREF="../main/glossar3.html#tcp" TARGET="glossary">tcp</A>
+		subtree is made up of some individual configuration and statistic
+		variables and a table that records TCP connection activity.
+		<BR>
+		<BR>
+		
+		
+		<APPLET CODE="tree.class" HEIGHT=500 WIDTH=230 ALIGN="LEFT">
+			<PARAM NAME="TITLE" value="tcp">
+			<PARAM NAME="IDENTIFIER" value="1.3.6.1.2.1.6">
+			<PARAM NAME="LEVEL1SUB0LABEL0" value="1 tcpRtoAlgorithm">
+			<PARAM NAME="LEVEL2SUB0LABEL0" value="2 tcpRtoMin">
+			<PARAM NAME="LEVEL3SUB0LABEL0" value="3 tcpRtoMax">
+			<PARAM NAME="LEVEL4SUB0LABEL0" value="4 tcpMaxConn">
+			<PARAM NAME="LEVEL5SUB0LABEL0" value="5 tcpActiveOpens">
+			<PARAM NAME="LEVEL6SUB0LABEL0" value="6 tcpPassiveOpens">
+			<PARAM NAME="LEVEL7SUB0LABEL0" value="7 tcpAttempFails">
+			<PARAM NAME="LEVEL8SUB0LABEL0" value="8 tcpEstabResets">
+			<PARAM NAME="LEVEL9SUB0LABEL0" value="9 tcpCurrEstab">
+			<PARAM NAME="LEVEL10SUB0LABEL0" value="10 tcpInSegs">
+			<PARAM NAME="LEVEL11SUB0LABEL0" value="11 tcpOutSegs">
+			<PARAM NAME="LEVEL12SUB0LABEL0" value="12 tcpRetransSegs">
+			<PARAM NAME="LEVEL13SUB0LABEL0" value="13 tcpConnTable">
+			<PARAM NAME="LEVEL13SUB1LABEL0" value="1 tcpConnEntry">
+			<PARAM NAME="LEVEL13SUB1LABEL1" value="1 tcpConnState">
+			<PARAM NAME="LEVEL13SUB1LABEL2" value="2 tcpConnLocalAddress">
+			<PARAM NAME="LEVEL13SUB1LABEL3" value="3 tcpConnLocalPort">
+			<PARAM NAME="LEVEL13SUB1LABEL4" value="4 tcpConnRemAddress">
+			<PARAM NAME="LEVEL13SUB1LABEL5" value="5 tcpConnRemPort">
+			<PARAM NAME="LEVEL14SUB0LABEL0" value="14 tcpInErrs">
+			<PARAM NAME="LEVEL15SUB0LABEL0" value="15 tcpOutRsts">
+		</APPLET>
+		
+		<UL>
+			<FONT SIZE="+1" FACE="Comic Sans MS">
+				TCP Configuration Variables
+			</FONT>
+			<BR>
+			<BR>
+			
+			The four first variables are TCP configuration parameters.
+			These are about :
+			<UL>
+				<LI>
+				the algorithm used to determine the timeout value used for retransmission of
+				unacknowledged octets
+				<LI>
+				the minimum and maximum values permitted by a TCP implementation for the
+				retransmission timeout (in milliseconds)
+				<LI>
+				the limit on the total number of TCP connections the system can support
+			</UL>
+			<BR>
+			
+			
+			<FONT SIZE="+1" FACE="Comic Sans MS">
+				TCP Connection Statistics
+			</FONT>
+			<BR>
+			<BR>
+			
+			An outgoing TCP connection is requested whenever a user asks for a
+			connection-oriented service such as telnet terminal access or ftp file
+			transfer. The tcpActiveOpens counts these outgoing connection requests.
+			<BR>
+			Remote users may also access the local computer in order to log in, perform
+			file transfer, pick up mail, or get the network news. A server runs as a
+			background task, waiting for remote users to connect and request access. The
+			tcpPassiveOpens counts these incoming requests.
+		</UL>
+		
+		<BR CLEAR="ALL">
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			TCP Incoming and Outgoing Traffic Counts
+		</FONT>
+		<BR>
+		<BR>
+		
+		The traffic counts of incoming and outgoing segments can provide a idea of the
+		network health of a host. For example, a large number of retransmissions is a
+		sure sign of trouble.
+		<BR>
+		<BR>
+		
+		
+		The figure below is a
+		<A HREF="../main/glossar1.html#cased" TARGET="glossary">Case diagram</A>
+		that shows the flow of segments.
+		<BR>
+		Segments are counted as they arrive from the network. Some are discarded during
+		error screening, and the rest is delivered to their destination ports.
+		<BR>
+		<BR>
+		
+		
+		<CENTER>
+			<IMG SRC="images/mib2appl.gif" WIDTH="445" HEIGHT="59" ALT="Applications">
+			<BR>
+			<IMG SRC="images/mibip.gif" WIDTH="445" HEIGHT="285" ALT="">
+			<BR>
+			<IMG SRC="images/mib2ip.gif" WIDTH="445" HEIGHT="59" ALT="IP">
+			<BR>
+			<BR>
+			
+			<B>
+				<U>
+					Case diagram showing segment flows
+				</U>
+			</B>
+		</CENTER>
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The TCP Connection Table
+		</FONT>
+		<BR>
+		<BR>
+		
+		The TCP connection table provides information about the current TCP connections
+		produced by local and remote network management stations. Its variables provide
+		information about :
+		<UL>
+			<LI>
+			The current state for the connection
+			<LI>
+			The local and remote
+			<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+			address for the connection
+			<LI>
+			The local port and remote number for the connection
+		</UL>
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+		<BR CLEAR="ALL">
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mgroup24.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup2.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup26.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+		
+	</BODY>
+	
+</HTML>

@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP Version 2 :
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="images/tv2prot.gif" WIDTH="324" HEIGHT="36" ALT="SNMP v2 PROTOCOL">
+		</CENTER>
+		<BR>
+		The main problems of the
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">version 1</A>
+		are the
+		<A HREF="../main/glossar1.html#authen" TARGET="glossary">authentication</A>
+		of the message
+		source, protecting these message from disclosure and placing access controls
+		on
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		database. Those problems are solved in
+		<A HREF="../main/glossar3.html#v2" TARGET="glossary">SNPM v2</A>
+		, they
+		required significant changes to the format of SNMP
+		<A HREF="../main/glossar3.html#pdu" TARGET="glossary">PDUs</A>
+		.
+		<BR>
+		Two new protocol operations have been added. One supports efficient transfer of
+		large amount of MIB data, the other enables a
+		<A HREF="../main/glossar2.html#manager" TARGET="glossary">manager</A>
+		to inform another manager
+		of significant events.
+		<BR>
+		<BR>
+		In SNMPv2, if a multiple requested value, in a
+		<A HREF="../main/glossar2.html#getreq" TARGET="glossary">get-request</A>
+		, one is not valid
+		or does not exist, there will be answers for the other request that have been
+		well dealt.
+		<BR>
+		Whereas for version 1, no response at all was given, only the error message.
+		<BR>
+		<BR>
+		In version 1,
+		<A HREF="../main/glossar3.html#trap" TARGET="glossary">traps</A>
+		had a different format than all of the other PDUs.
+		Version2 simplify traps by giving them the same format as the get and set
+		PDUs.
+		<BR>
+		<BR>
+		
+		<FONT  SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>New Version 2 Operation :
+</B>			</I>
+		</FONT>
+		<BR>
+		<BR>
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The inform-request
+		</FONT>
+		<BR>
+		It enables a manager to send some information to another manager.  This message
+		type helps organisation that needs a hierarchy of network management stations.
+		A manager that sends an inform-request will receive the echo of its message as
+		proof of delivery.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Get-bulk-request
+		</FONT>
+		<BR>
+		As message sizes are limited by the local capabilities of each agent, if too
+		much data are asked in an ordinary get-request you receive a message "too big"
+		error message without data.
+		<BR>
+		The get bulk request allows you to retrieve a lot of information, then you will
+		receive as much data as it is possible in your response message.
+		This request can retrieve stand alone scalar variables and&nbsp;/&nbsp;or
+		columns from a table.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+			<B>	SNMP V2 AUTHENTICATION, SECURITY and CONTROL.</B>
+			</I>
+		</FONT>
+		<BR>
+		<BR>
+		SNMP and
+		<A HREF="../main/glossar1.html#agent" TARGET="glossary">Agent</A>
+		communicate by means of messages transmitted usually in
+		<A HREF="../main/glossar3.html#udp" TARGET="glossary">UDP</A>
+		<A HREF="../main/glossar1.html#datagram" TARGET="glossary">datagrams</A>
+		. The good state of all the network stands on this messages. And here,
+		security is very important.
+		<BR>
+		<BR>
+		We need to be sure of the message source and about its contents.
+		We need to be protected against eavesdroppers and we also need to
+		restrict MIB databases to some applications.
+		Those are all security, authentication and control problems
+		(for this point it is made by access control lists).
+		<BR>
+		<BR>
+		SNMP V2 security framework deals with the problem of the authentication of the
+		message sender,  its contents and the eavesdropper problems. SNMPv2 supports
+		the 		use of authentication protocol to identify the sources
+		reliability and to prevent message modification.
+		<BR>
+		SNMPv2 also supports the use of encryption to keep messages
+		<A HREF="../main/glossar3.html#privacy" TARGET="glossary">privacy</A>
+		.
+		<BR>
+		<BR>
+		The recommended authentication procedure is the Digest Authentication Protocol.
+		<BR>
+		This protocol is based on the message-digest to authenticate message source and
+		prevent message tampering.
+		<BR>
+		<BR>
+		<I>
+			Message-digest :
+		</I>
+		
+		<BR>
+		It is a message treated like a string of 32-bit numbers. It is just a
+		mathematical calculation performed on these numbers and included with the
+		message. The message-digest protocol chops messages into bits, mixes it up
+		with a secret ingredient and selects a few bits here and there to assemble
+		into its result. The result is sent to the partner with the original message.
+		<BR>
+		<BR>
+		
+		The authentication only proves that the message is genuine, it does not prevent
+		an eavesdropper from reading the message.
+		<BR>
+		Privacy is kept by advancing to a higher level of protection by encrypting
+		messages. SNMPv2 is structured so that any privacy protocol can be dropped in
+		and used.
+		<BR>
+		The current protocol is a symetric encryption using the Data Encryption
+		Standard. The same key is used to encrypt message and to decrypt it.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>THOUGHTS ON SECURITY :</B>
+			</I>
+		</FONT>
+		<BR>
+		<BR>
+		SNMP Version 1 was easy to implement and maintain. Now in version 2, the
+		introduction of authentication and privacy helps to keep the network safe.
+		<BR>
+		But, on the other, hand the implementation is much larger and more complex. The
+		important information have to be protected and kept in the device if a crash
+		comes, those information are kept in a non volatile memory.
+		<BR>
+		The SNMPv2 gives many solutions against piracy but an attacker can still do many
+		annoying things.
+		<BR>
+		<BR>
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="s2chang1.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="snmp2.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="../snmp3/indexv3.html" TARGET="_top"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+		
+		
+	</BODY>
+	
+</HTML>

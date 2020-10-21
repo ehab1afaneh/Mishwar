@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP ASN.1 : MACRO
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="images/tmacro.gif" WIDTH="135" HEIGHT="36" ALT="Macros">
+		</CENTER>
+		<BR>
+		
+		
+		<A HREF="../main/glossar1.html#asn1" TARGET="glossary">ASN.1</A>
+		 includes the possibility to create macros templates. 
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		 uses this
+		specially to have complete information about the objects in the 
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		, such as :
+		<BR>
+		<BR>
+		<LI>
+		What will be the MIB object name (
+		<A HREF="../main/glossar2.html#oi" TARGET="glossary">OBJECT IDENTIFIER</A>
+		 and text label) ?
+		<LI>
+		Which type will the object hold ?
+		<LI>
+		Are there any restrictions on the range of values (example an integer from 1 to
+		20) ?
+		<LI>
+		What are the operations allowed on the object (read-only, read-write, or
+		not-accessible) ?
+		<LI>
+		Descriptive information of the object.
+		<BR>
+		<BR>
+		
+		Example :
+		<BR>
+<PRE>
+ipAdEntReasmMaxSize OBJECT-TYPE
+	SYNTAX INTEGER  (0..65535)
+	ACCESS read-only
+	STATUS mandatory
+	DESCRIPTION
+		" The size of the largest IP datagram which this
+		entity can re-assemble from incoming IP fragmented
+		datagrams received on this interface."
+	::= { ipAddrEntry 5}
+</PRE>
+		
+		This example is a definition which reveals :
+		<BR>
+		<OL type="1">
+			<LI>
+			The
+			<I>
+				OBJECT IDENTIFIER
+			</I>
+			for ipAdEntReasmMaxSize is {ipAddrEntry 5}, which can be traced down the tree
+			as 1.3.6.1.2.1.4.20.1.5.
+			<LI>
+			The
+			<I>
+				SYNTAX
+			</I>
+			, or datatype, for the value of a ipAdEntReasmMaxSize variable INTEGER.
+			<LI>
+			The integer belongs to the [0, 65535] range.
+			<LI>
+			The
+			<I>
+				ACCESS
+			</I>
+			tells us the types of operations that can be performed. In this case, a
+			management station can read this value, not update it.
+			<LI>
+			The
+			<I>
+				STATUS
+			</I>
+			of mandatory informs an implementor that this variable must be supported.
+			<LI>
+			The
+			<I>
+				DESCRIPTION
+			</I>
+			tells us that the value of this variable is the size of the largest datagram
+			that can be reassembled from fragments at the interface.
+		</OL>
+		An other example about   Constructing Complex Datatypes :
+<PRE>
+IpAddrEntry ::=
+	SEQUENCE {
+		ipAdrEntAddr
+			IpAddress,
+		ipAdEntIfIndex
+			INTEGER,
+		ipAdEntNetMask
+			IpAddress,
+		ipAdEntBcastAssr
+			INTEGER,
+		ipAdEntReasmMaxSize
+			INTEGER (0..65535)
+	}
+</PRE>
+		
+		<BR>
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="aconstr2.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="asn1.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="aber4.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+
+		
+	</BODY>
+	
+</HTML>

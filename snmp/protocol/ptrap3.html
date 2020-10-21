@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP Protocol : Trap
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="images/ttrap.gif" WIDTH="333" HEIGHT="46" ALT="TRAP" BORDER="0" ALIGN="MIDDLE">
+			
+		</CENTER>
+		<BR>
+		
+		
+		<A HREF="../main/glossar3.html#trap" TARGET="glossary">Trap</A>
+		message enables
+		<A HREF="../main/glossar1.html#agent" TARGET="glossary">agent</A>
+		to report a serious condition to a management
+		station. The message is send once and it is not a chorus of complains from the
+		device about something that is already figured out.
+		<BR>
+		<BR>
+		
+		As previously, for the other messages, the trap message has fields identifying
+		the
+		version and the community password. Then the trap format is different and there
+		are
+		five other fields :
+		<BR>
+		<LI>
+		enterprise fields contain an
+		<A HREF="../main/glossar2.html#oi" TARGET="glossary">OBJECT IDENTIFIER</A>
+		which name the device that sends
+		the trap.
+		<LI>
+		generic-trap contains 7 values :
+		
+		<UL type="circle">
+			<LI>
+			coldStart - the sender is reinitialising and its configuration may change
+			<LI>
+			warmStart - the sender is reinitialising but its configuration will not change
+			<LI>
+			linkDown - failure in one of the agent’s links
+			<LI>
+			linkUp - one of the agent’s links has come up
+			<LI>
+			authenticationFailure - the agent received a protocol message unproperly
+			authenticated
+			<LI>
+			egpNeighborLoss - an Exterior Gateway Protocol neighbour is down
+			<LI>
+			enterpriseSpecific - The trap is identified as not being one of the basic one
+		</UL>
+		
+		<LI>
+		specific-trap field is used when the generic-trap value is enterpriseSpecific.
+		<LI>
+		time ticks is the time since the initialisation of the entity that send the
+		trap.
+		
+		<BR>
+		<BR>
+		
+		The Enterprise specific traps can be used to define hundreds or thousands of
+		Enterprise-specific trap types. Those specific trap type are defined as they
+		are needed. The 'enterprise' that define those traps are
+		<A HREF="../main/glossar2.html#mibg" TARGET="glossary">MIB standards group</A>
+		,
+		vendors and corporate network management organisations. Each of them add
+		different new traps. MIB standard groups add technology-specific traps, vendors
+		add product-specific traps, and corporate groups add traps that meet their
+		special management needs.
+		<BR>
+		<BR>
+		<CENTER>
+			<IMG SRC="../images/p3trap.gif" WIDTH="421" HEIGHT="211" ALT="Manager receiving a trap">
+			<BR>
+			<B>
+				<U>
+					Manager receiving a trap.
+				</U>
+			</B>
+		</CENTER>
+		
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Trap Definition Macro
+		</FONT>
+		<BR>
+		<BR>
+		<A HREF="../main/glossar3.html#rfc" TARGET="glossary">RCF</A>
+		1215 defined a TRAP-TYPE macro template that helps MIB designers and
+		vendors to define SNMP v.1 traps. The macro give the following fields that we
+		can identify :
+		<BR>
+		<LI>
+		Enterprise : for the trap definition. This will point to a
+		<A HREF="../main/glossar2.html#mibs" TARGET="glossary">MIB subtree</A>
+		, or
+		identify the entity the trap has been designed for.
+		<LI>
+		specific-trap is the number of the traps as they are defined.
+		<LI>
+		you can define a list of MIB variables that will be carried in the trap
+		message. It can be useful in order to diagnose the problem.
+		<LI>
+		a description of the trap.
+		<LI>
+		optionally, it is a reference part that relates to another trap,
+		<A HREF="../main/glossar1.html#alarm" TARGET="glossary">alarm</A>
+		,
+		<A HREF="../main/glossar1.html#event" TARGET="glossary">event</A>
+		... anything appropriate for a MIB module.
+		<BR>
+		<BR>
+		
+		
+		The template of trap definition is very flexible. Vendors can choose the
+		variables that they need and implement a product-specific message for their
+		product.
+		<BR>
+		The MIB definers may have forgotten to include something that a is important
+		for a vendor, he could then wrote a trap definition.
+		<BR>
+		
+		It is convenient to developers that they don’t need to wait for an official
+		upgrade of specification before fixing the oversight. The RFC  1215 gives the
+		right of a legal implementation of extra variable at the end of the official
+		variable-list. The only condition is that the variable value is accompanied by
+		its OBJECT IDENTIFIER, a management application will be able to understand the
+		additional information that has been added.
+		<BR>
+		<BR>
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+		<BR>
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="pformat2.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="protocol.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="../asn1/indexasn.html" TARGET="_top"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A><BR>
+<BR>
+
+		</CENTER>
+
+		
+	</BODY>
+	
+</HTML>

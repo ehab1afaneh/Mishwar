@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MONITORING : Matrix
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		<BR>
+		<CENTER>
+			
+			
+			<IMG SRC="images/tmatrix.gif" WIDTH="127" HEIGHT="35" ALT="MATRIX">
+			 
+			<BR>
+			<FONT SIZE="+2" FACE="Comic sans ms">
+				(1.3.6.1.2.1.16.6)
+			</FONT>
+			
+		</CENTER>
+		<BR>
+		Here, the aim of this group is to know who is talking to whom and how much. More
+		precisely, what will be counted is the flows of traffic and errors from each
+		source to each destination. In the matrix group, there is : a control table and
+		a data table.
+		<BR>
+		<BR>
+		The data table is double&nbsp;; the first is used to measure the flow of
+		<A HREF="../main/glossar3.html#packet" TARGET="glossary">packets</A>
+		 between source and destination, the second is identical, the
+		difference is the order of indexation.
+		<BR>
+		<BR>
+		
+		<LI>
+		Matrix Control Table : the table identifies an interface to watch and
+		identifies the upper limit to the number of source-destination pairs that can
+		be tracked (When the table gets filled up, old entries have to be deleted).
+		<BR>
+		<BR>
+		
+		<LI>
+		Matrix Source-to-Destination Table (matrixSDTable) : contain a set of
+		statistics that tracks the amount of traffic between two systems. This table
+		records simple counts of packet, bytes and errors. Thus, it counts traffic from
+		a
+		source to the destination. The 
+		<A HREF="../main/glossar2.html#monitor" TARGET="glossary">monitor</A>
+		 will create a new entry in the table
+		when it detects new flows. When space is missing the monitor delete
+		entries (usually the older stored information).
+		<BR>
+		This matrix is indexed as follow :
+		<BR>
+		<OL>
+			<LI>
+			Interface being monitored.
+			<BR>
+			<LI>
+			Source physical address
+			<BR>
+			<LI>
+			Destination physical address.
+		</OL>
+		<BR>
+		
+		<LI>
+		Matrix Destination-to-Source Table (matrixDSTable) : is identical to the
+		preceding table except that the order of the indices is
+		<BR>
+		<OL>
+			<LI>
+			Interface being monitored.
+			<LI>
+			Destination physical address.
+			<LI>
+			Source physical address.
+		</OL>
+		It is convenient for the order you would have a 
+		<A HREF="../main/glossar2.html#getnreq" TARGET="glossary">get-next request</A>
+		.
+		
+		<BR>
+		<BR>
+
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mohostn4.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mormon0.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mofilte6.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+
+		
+		
+	</BODY>
+	
+</HTML>

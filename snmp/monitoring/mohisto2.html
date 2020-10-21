@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MONITORING : History
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="images/thisto.gif" WIDTH="135" HEIGHT="44" ALT="HISTORY">
+			<BR>
+			<FONT SIZE="+2" Face="Comic sans ms">
+				(1.3.6.1.2.1.16.2)
+			</FONT>
+		</CENTER>
+		
+		<BR>
+		
+		The
+		<A HREF="../main/glossar2.html#monitor" TARGET="glossary">monitors</A>
+		have also "memory", they are not just reporting what is currently
+		going on. Monitors are able to keep records of data gathering about daily normal
+		traffic. Statistics are counted for preset time interval set by the network
+		manager. Statistics for a large number of intervals can be kept by the monitor,
+		but the number of intervals depends on the monitor abilities.
+		<BR>
+		<BR>
+		
+		The history control table is used to set configuration parameters for history
+		collection. The network manager set the number of intervals, and the monitor
+		records the closest number of intervals it could provide. When the total number
+		of records is reached, the monitor warps around, and the older record is
+		replaced by a new one. The manager sets the sample time interval from 1 second
+		to 1 hour.
+		<BR>
+		<BR>
+		
+		The data gathering begins after the operator has completed a valid entry in the
+		control table. The History Control Table describes the database that contains
+		the results of the actual history sample. This database will
+		contain a separate set of history records for each History Control Table that
+		point to an interface.
+		<BR>
+		And separate data tables will be used for other medias.
+		The first table index identifies which History Control Table configures these
+		statistics. The second one identifies the sample interval.
+		<BR>
+		<BR>
+
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mostati1.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mormon0.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mohost3.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+
+		
+		
+	</BODY>
+	
+</HTML>

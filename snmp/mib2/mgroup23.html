@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MIB II Groups : Intenet Protocol (IP) Group
+		</TITLE>
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif"  BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms" >
+			<I>
+			<B>	The Internet Protocol (ip) Group (1.3.6.1.2.1.4)</B>
+			</I>
+		</FONT>
+		<BR>
+		<BR>
+		The
+		<A HREF="../main/glossar2.html#ip" TARGET="glossary">ip</A>
+		
+		<A HREF="../main/glossar2.html#mibs" TARGET="glossary">subtree</A>
+		is made up of some individual configuration and statistics
+		variables and three
+		<A HREF="../main/glossar3.html#table" TARGET="glossary">tables</A>
+		. These information are needed by devices and
+		<A HREF="../main/glossar3.html#router" TARGET="glossary">routers</A>
+		operating with the
+		<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+		protocol :
+		<BR>
+		<LI>
+		configuring variables (Time To Live, timeouts...)
+		<LI>
+		statistics of incoming and outgoing traffic
+		<LI>
+		error counters
+		<LI>
+		ip addresses and subnet masks of each network interfaces
+		<LI>
+		the ip routing table used to find the next-hop system address to route datagrams
+		<LI>
+		the ipNetToMediaTable which replaces the now deprecated Address Translation
+		Table (described in at group)
+		<BR>
+		<BR>
+		
+		<APPLET CODE="tree.class" HEIGHT=1050 WIDTH=270 HSPACE=15 VSPACE=10 ALIGN="LEFT">
+			<PARAM NAME="TITLE" value="ip">
+			<PARAM NAME="IDENTIFIER" value="1.3.6.1.2.1.4">
+			<PARAM NAME="LEVEL1SUB0LABEL0" value="1 ipForwarding">
+			<PARAM NAME="LEVEL2SUB0LABEL0" value="2 ipDefaultTTL">
+			<PARAM NAME="LEVEL3SUB0LABEL0" value="3 ipInReceives">
+			<PARAM NAME="LEVEL4SUB0LABEL0" value="4 ipInHdrErrors">
+			<PARAM NAME="LEVEL5SUB0LABEL0" value="5 ipInAddrErrors">
+			<PARAM NAME="LEVEL6SUB0LABEL0" value="6 ipForwDatagrams">
+			<PARAM NAME="LEVEL7SUB0LABEL0" value="7 ipInUnknownProtos">
+			<PARAM NAME="LEVEL8SUB0LABEL0" value="8 ipInDiscards">
+			<PARAM NAME="LEVEL9SUB0LABEL0" value="9 ipInDelivers">
+			<PARAM NAME="LEVEL10SUB0LABEL0" value="10 ipOutRequests">
+			<PARAM NAME="LEVEL11SUB0LABEL0" value="11 ipOutDiscards">
+			<PARAM NAME="LEVEL12SUB0LABEL0" value="12 ipOutNoRoutes">
+			<PARAM NAME="LEVEL13SUB0LABEL0" value="13 ipReasmTimeout">
+			<PARAM NAME="LEVEL14SUB0LABEL0" value="14 ipReasmReqds">
+			<PARAM NAME="LEVEL15SUB0LABEL0" value="15 ipReasmOKs">
+			<PARAM NAME="LEVEL16SUB0LABEL0" value="16 ipReasmFails">
+			<PARAM NAME="LEVEL17SUB0LABEL0" value="17 FragOKs">
+			<PARAM NAME="LEVEL18SUB0LABEL0" value="18 ipFragFails">
+			<PARAM NAME="LEVEL19SUB0LABEL0" value="19 ipFragCreates">
+			<PARAM NAME="LEVEL20SUB0LABEL0" value="20 ipAddrTable">
+			<PARAM NAME="LEVEL20SUB1LABEL0" value="1 ipAddrEntry">
+			<PARAM NAME="LEVEL20SUB1LABEL1" value="1 ipAdEntAddr">
+			<PARAM NAME="LEVEL20SUB1LABEL2" value="2 ipAdEntIfIndex">
+			<PARAM NAME="LEVEL20SUB1LABEL3" value="3 ipAdEntNetMask">
+			<PARAM NAME="LEVEL20SUB1LABEL4" value="4 ipAdEntBcastAddr">
+			<PARAM NAME="LEVEL20SUB1LABEL5" value="5 ipAdEntReasmMaxSize">
+			<PARAM NAME="LEVEL21SUB0LABEL0" value="21 ipRouteTable">
+			<PARAM NAME="LEVEL21SUB1LABEL0" value="1 ipRouteEntry">
+			<PARAM NAME="LEVEL21SUB1LABEL1" value="1 ipRouteDest">
+			<PARAM NAME="LEVEL21SUB1LABEL2" value="2 ipRouteIfIndex">
+			<PARAM NAME="LEVEL21SUB1LABEL3" value="3 ipRouteMetric1">
+			<PARAM NAME="LEVEL21SUB1LABEL4" value="4 ipRouteMetric2">
+			<PARAM NAME="LEVEL21SUB1LABEL5" value="5 ipRouteMetric3">
+			<PARAM NAME="LEVEL21SUB1LABEL6" value="6 ipRouteMetric4">
+			<PARAM NAME="LEVEL21SUB1LABEL7" value="7 ipRouteNextHop">
+			<PARAM NAME="LEVEL21SUB1LABEL8" value="8 ipRouteType">
+			<PARAM NAME="LEVEL21SUB1LABEL9" value="9 ipRouteProto">
+			<PARAM NAME="LEVEL21SUB1LABEL10" value="10 ipRouteAge">
+			<PARAM NAME="LEVEL21SUB1LABEL11" value="11 ipRouteMask">
+			<PARAM NAME="LEVEL21SUB1LABEL12" value="12 ipRouteMetric5">
+			<PARAM NAME="LEVEL21SUB1LABEL13" value="13 ipRouteInfo">
+			<PARAM NAME="LEVEL22SUB0LABEL0" value="22 ipNetToMediaTable">
+			<PARAM NAME="LEVEL22SUB1LABEL0" value="1 ipNetToMediaEntry">
+			<PARAM NAME="LEVEL22SUB1LABEL1" value="1 ipNetToMediaIfIndex">
+			<PARAM NAME="LEVEL22SUB1LABEL2" value="2 ipNetToMediaPhysAddress">
+			<PARAM NAME="LEVEL22SUB1LABEL3" value="3 ipNetToMediaNetAddress">
+			<PARAM NAME="LEVEL22SUB1LABEL4" value="4 ipNetToMediaType">
+			<PARAM NAME="LEVEL23SUB0LABEL0" value="23 ipRoutingDiscards">
+		</APPLET>
+		
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The IP Address Table
+		</FONT>
+		<BR>
+		<BR>
+		Every network
+		<A HREF="../main/glossar2.html#interf" TARGET="glossary">interface</A>
+		is assigned an IP address, and so there is a table
+		entry for each IP address. Sometimes the number of IP address is larger than
+		the number of interfaces. This is because a single interface can be assigned
+		more than one IP address.
+		<BR>
+		All of the information in this table are read-only, and thus we should expect
+		that it will be configured directly at the device.
+		<BR>
+		<BR>
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The IP Routing Table
+		</FONT>
+		<BR>
+		<BR>
+		The Ip Routing table contains information needed to route
+		<A HREF="../main/glossar1.html#datagram" TARGET="glossary">datagrams</A>
+		. IP looks
+		up a destination in the table in order to choose the next-hop system to which a
+		datagram should be sent.
+		<BR>
+		<BR>
+		
+		Where do routing information come from ?
+		<BR>
+		<UL>
+			<LI>
+			From stable, manually configures entries
+			<LI>
+			Via
+			<A HREF="../main/glossar2.html#icmp" TARGET="glossary">Internet Control Message Protocol (ICMP)</A>
+			Redirect message. When a
+			<A HREF="../main/glossar3.html#router" TARGET="glossary">router</A>
+			receives a datagram that is not supposed to receive, it sends a Redirect
+			message back to the system. This message contains the correct next hop for this
+			destination.
+			<LI>
+			From neighbouring routers that provide information via an automatic routing
+			protocol.
+		</UL>
+		<BR>
+		
+		
+		<B>
+			Routing protocols
+		</B>
+		<BR>
+		<BR>
+		
+		Routers use an automatic routing protocol to recalculate their route after a
+		link failure, device failure, or when a new router is added to the network.
+		Modern routers can run several routing protocols at the same time. A routing
+		protocol contains the following information :
+		<BR>
+		<UL>
+			<LI>
+			the rules whereby routers maintain awareness of each other and exchange current
+			information with each other
+			<LI>
+			The algorithm used to calculate route based on current information
+		</UL>
+		<BR CLEAR="ALL">
+		When an automatic routing protocol is used, routing table entries will be
+		updated dynamically. And an entry which has not been refreshed for a long time
+		will be discarded. The ipRouteAge variable keeps track of how long it has been
+		since an entry was refreshed.
+		<BR>
+		<BR>
+		
+		
+		Sometimes a router can throw away perfectly valid entries because it needs to
+		add some new entries to its table but has run out of space. The
+		ipRoutingDiscards variable counts the number of valid routing table entries
+		that have been discarded.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The ipForwardTable
+		</FONT>
+		<BR>
+		<BR>
+		
+		
+		The ipForwardTable is the alternative to the original ipRouteTable. Indeed,
+		this table is indexed by destination, protocol used, forwarding policy, and
+		next hop whereas the ipRoutingTable is indexed only by the route destination.
+		Indexing by the next hop as well as the destination supports mulipathing.
+		Indexing by protocol enables IP to search first for routes learned via a more
+		advanced protocol, such as OSPF (Open Shortest Path First).
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The ipNetToMediaTable
+		</FONT>
+		<BR>
+		<BR>
+		
+		
+		This
+		<A HREF="../main/glossar3.html#table" TARGET="glossary">table</A>
+		is intended to replace the now
+		<A HREF="../main/glossar1.html#depre" TARGET="glossary">deprecated</A>
+		Address Translation table
+		described in the
+		<I>
+			<A HREF="../main/glossar1.html#at" TARGET="glossary">at</A>
+		</I>
+		group. It maps IP addresses to technology-specific
+		addresses. This new table includes the ipNeToMediaType variable. This variable
+		indicates whether an entry is a static manually entered type, or was discovered
+		by a dynamic protocol such as
+		<A HREF="../main/glossar1.html#arp" TARGET="glossary">ARP</A>
+		(Address Resolution Protocol).
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			IP Statistics
+		</FONT>
+		<BR>
+		<BR>
+		
+		Some variables record counts of incoming and outgoing IP traffic and errors.
+		<BR>
+		<BR>
+		What happens to incoming and outgoing datagrams ?
+		<BR>
+		<BR>
+		Some incoming
+		<A HREF="../main/glossar1.html#datagram" TARGET="glossary">datagrams</A>
+		get discarded, some are delivered to protocols (such as
+		<A HREF="../main/glossar3.html#tcp" TARGET="glossary">TCP</A>
+		or
+		<A HREF="../main/glossar3.html#udp" TARGET="glossary">UDP</A>
+		) at the system, and some are forwarded.
+		<BR>
+		
+		About the outgoing activity, datagrams may be discarded. And among those
+		successfully forwarded, some need to be fragmented first. Occasionally,
+		datagrams fragments arrive and must be held until all of the pieces are put
+		together.
+		<BR>
+		<BR>
+		
+		The figure below shows a
+		<A HREF="../main/glossar1.html#cased" TARGET="glossary">Case diagram</A>
+		of the flow of incoming
+		datagrams arriving at the IP layer. This figure shows datagrams leaving or
+		joining the flows into and out of the system.
+		<BR>
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="images/mib2laab.gif" WIDTH="445" HEIGHT="59" ALT="LAYER ABOVE">
+			<BR>
+			<IMG SRC="images/mib2flow.gif" WIDTH="444" HEIGHT="404" ALT="">
+			<BR>
+			
+			<IMG SRC="images/mib2labe.gif" WIDTH="445" HEIGHT="59" ALT="LAYER BELOW">
+			<BR>
+			<BR>
+			<B>
+				<U>
+					Case diagram datagram flows.
+				</U>
+			</B>
+		</CENTER>
+		<BR>
+
+		<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+		<BR CLEAR="ALL">
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mgroup22.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup2.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup24.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+		
+	</BODY>
+	
+</HTML>

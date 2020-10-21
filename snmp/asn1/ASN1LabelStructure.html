@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			- ASN.1 - Identifier Structure -
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#ff0080" VLINK="#800040" ALINK="#0080C0">
+		<CENTER>
+			
+			<TABLE WIDTH="96%"  BORDER=1>
+				<TR  >
+					<TD>
+						<FONT SIZE="+3" >
+							<DIV align="center">
+								IDENTIFIER STRUCTURE
+							</DIV>
+						</FONT>
+					</TD>
+				</TR>
+			</TABLE>
+			
+			<TABLE WIDTH="96%"  BORDER=1>
+				<TR BGCOLOR="#FFFAAD">
+					<TD>
+						<FONT SIZE="+2">
+							Identifier Format if 0
+							<  Reference <FONT FACE="Symbol" SIZE="+2">
+							£
+						</FONT>
+						30
+					</FONT>
+				</TD>
+			</TR>
+		</TABLE>
+		
+		
+		<TABLE WIDTH="96%" BORDER=1>
+			<TR BGCOLOR="#FFFAED">
+				<TD>
+					<CENTER>
+						<IMG SRC="images/identif.gif" WIDTH="200" HEIGHT="95" ALT="IDENTIFIER FORMAT">
+					</CENTER>
+				</TD>
+			</TR>
+		</TABLE>
+		
+		<TABLE WIDTH="96%"  BORDER=1>
+			<TR BGCOLOR="#FFFAAD">
+				<TD>
+					<FONT SIZE="+2">
+						Identifier Format if Reference >
+						30
+					</FONT>
+				</TD>
+			</TR>
+		</TABLE>
+		
+		<TABLE WIDTH="96%" BORDER=1>
+			<TR>
+				<TD BGCOLOR="#FFFAED">
+					<IMG SRC="images/identif2.gif" ALIGN="MIDDLE" WIDTH="200" HEIGHT="95" ALT="IDENTIFIER">
+					<IMG SRC="images/identif3.gif" ALIGN="MIDDLE" WIDTH="163" HEIGHT="95" ALT="IDENTIFIER">
+					<IMG SRC="images/identif3.gif" ALIGN="MIDDLE" WIDTH="163" HEIGHT="95" ALT="IDENTIFIER">
+					<B>
+						
+						<FONT COLOR=#000000>
+							...
+						</FONT>
+						
+					</B>
+					<BR>
+					
+					
+					<IMG SRC="images/identif4.gif" WIDTH="180" HEIGHT="65" ALIGN="RIGHT" ALT="IDENTIFIER"  VALIGN="MIDDLE">
+					<BR CLEAR="ALL">
+					
+					
+					<IMG SRC="images/identif5.gif" ALIGN="RIGHT" WIDTH="423" HEIGHT="59" ALT="REFERENCE IDENTIFIER">
+					
+				</TD>
+			</TR>
+		</TABLE>
+	</CENTER>
+	<BR>
+	<BR>
+	<FONT SIZE="+1">
+		Encoding Examples :
+		<BR>
+<PRE>
+IPAdress ::=
+	[APPLICATION 0] -- in network-byte order
+	IMPLICIT OCTET STRING (SIZE(4))
+</PRE>
+		<UL>
+			[APPLICATION 0] shows that this definition have an identifier APPLICATION of
+			reference 0.
+			<BR>
+			So the identifier of this type is 0100 0000 (40 in Hex).
+			<UL TYPE="CIRCLE">
+				<LI>
+				Class Application 01
+				<LI>
+				Primitive Form 0
+				<LI>
+				Reference 0-0000
+			</UL>
+		</UL>
+		<HR WIDTH="50%" ALIGN=CENTER>
+		
+		Example : GetNextRequest-PDU
+		<BR>
+<PRE>
+GetNextRequest-PDU ::= [1]
+	IMPLICIT SEQUENCE {
+		requestId RequestID,
+		errorStatus ErrorStatus, -- always 0
+		errorIndex ErrorIndex,   -- always 0
+		variable-bindings VarBindList
+		}
+</PRE>
+		<BR>
+		<UL>
+			The identifier given is [1], no more precision, so it is a CONTEXT-SPECIFIC.
+			<BR>
+			The identifier is then 1010-0001 (A1 in Hex.)
+			<UL TYPE="CIRCLE">
+				<LI>
+				Class Context Specific 10
+				<LI>
+				Constructed Form 1
+				<LI>
+				Reference 0-0001
+			</UL>
+		</UL>
+		<BR>
+		<HR WIDTH="50%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="aber4.html#lblstruct">
+				<IMG SRC="../images/menu.gif" WIDTH="168" HEIGHT="32" ALT="- Last Menu -" BORDER="0">
+			</A>
+		</CENTER>
+		<BR>
+		
+	</BODY>
+</HTML>

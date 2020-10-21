@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MIB II Groups : Interface Group
+		</TITLE>
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>The Interfaces Group (1.3.6.1.2.1.2)</B>
+			</I>
+		</FONT>
+		<BR>
+		<BR>
+		<BR>
+		
+		<APPLET CODE="tree.class" HEIGHT=580 WIDTH=230  ALIGN=LEFT HSPACE=15 VSPACE=10>
+			<PARAM NAME="TITLE" value="interfaces">
+			<PARAM NAME="IDENTIFIER" value="1.3.6.1.2.1.2">
+			<PARAM NAME="LEVEL1SUB0LABEL0" value="1 ifNumber">
+			<PARAM NAME="LEVEL2SUB0LABEL0" value="2 ifTable">
+			<PARAM NAME="LEVEL2SUB1LABEL0" value="1 ifEntry">
+			<PARAM NAME="LEVEL2SUB1LABEL1" value="1 ifIndex">
+			<PARAM NAME="LEVEL2SUB1LABEL2" value="2 ifDescr">
+			<PARAM NAME="LEVEL2SUB1LABEL3" value="3 ifType">
+			<PARAM NAME="LEVEL2SUB1LABEL4" value="4 ifMtu">
+			<PARAM NAME="LEVEL2SUB1LABEL5" value="5 ifSpeed">
+			<PARAM NAME="LEVEL2SUB1LABEL6" value="6 ifPhysAddress">
+			<PARAM NAME="LEVEL2SUB1LABEL7" value="7 ifAdminStatus">
+			<PARAM NAME="LEVEL2SUB1LABEL8" value="8 ifOperStatus">
+			<PARAM NAME="LEVEL2SUB1LABEL9" value="9 ifLastChange">
+			<PARAM NAME="LEVEL2SUB1LABEL10" value="10 ifInOctets">
+			<PARAM NAME="LEVEL2SUB1LABEL11" value="11 ifInUcastPkts">
+			<PARAM NAME="LEVEL2SUB1LABEL12" value="12 ifInNUcastPkts">
+			<PARAM NAME="LEVEL2SUB1LABEL13" value="13 ifInDiscards">
+			<PARAM NAME="LEVEL2SUB1LABEL14" value="14 ifInErrors">
+			<PARAM NAME="LEVEL2SUB1LABEL15" value="15 ifInUnknownProtos">
+			<PARAM NAME="LEVEL2SUB1LABEL16" value="16 ifOutOctets">
+			<PARAM NAME="LEVEL2SUB1LABEL17" value="17 ifOutUcastPkts">
+			<PARAM NAME="LEVEL2SUB1LABEL18" value="18 ifOutNUcastPkts">
+			<PARAM NAME="LEVEL2SUB1LABEL19" value="19 ifOutDiscards">
+			<PARAM NAME="LEVEL2SUB1LABEL20" value="20 ifOutErrors">
+			<PARAM NAME="LEVEL2SUB1LABEL21" value="21 ifOutQLen">
+			<PARAM NAME="LEVEL2SUB1LABEL22" value="22 ifSpecific">
+		</APPLET>
+		
+		
+		The
+		<A HREF="../main/glossar2.html#mib2" TARGET="glossary">MIB-II</A>
+		
+		<A HREF="../main/glossar2.html#interf" TARGET="glossary">interfaces</A>
+		
+		<A HREF="../main/glossar2.html#mibs" TARGET="glossary">subtree</A>
+		contains a table with an entry for each system
+		interface. Notice that each interface has his own
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		group under the
+		transmission node (1.3.6.1.2.1.10) and include more specific information than
+		the interfaces group.
+		<BR>
+		<BR>
+		
+		The total number of network interfaces is shown in the ifNumber variable of the
+		interfaces group. This group deals with features that are common across
+		technologies, such as operational status of an interface or a count of the
+		number of received octets.
+		<BR>
+		<BR>
+		
+		This group then contains variables with information about :
+		<BR>
+		<UL>
+			<LI>
+			the type of technology for an interface
+			<LI>
+			the estimate of current bandwidth (in bits/s)
+			<LI>
+			the interface state
+			<LI>
+			statistics about incoming and outgoing traffic
+			<LI>
+			error counters
+			<LI>
+			an OBJECT IDENTIFIER that point to a MIB subtree that defines additional
+			variables for this type of interface
+		</UL>
+		<BR CLEAR="ALL">
+		
+		
+		
+		<BR>
+		
+		The
+		<A HREF="../main/glossar1.html#cased" TARGET="glossary">Case diagram</A>
+		below shows the incoming and outgoing traffic
+		flow. The traffic flow is quite simple.
+		<A HREF="../main/glossar1.html#frame" TARGET="glossary">Frames</A>
+		are counted as they arrive from
+		the network. Some are discarded during error screening, and the rest are
+		delivered to an appropriate protocol.
+		<BR>
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="images/mib2upla.gif" WIDTH="445" HEIGHT="59" ALT="To upper layers">
+			<BR>
+			<IMG SRC="images/mibinter.gif" WIDTH="445" HEIGHT="209" ALT="x">
+			<BR>
+			<IMG SRC="images/mib2netw.gif" WIDTH="445" HEIGHT="59" ALT="To the network">
+			<BR>
+			<BR>
+			
+			<B>
+				<U>
+					Case diagram showing packet flows
+				</U>
+			</B>
+		</CENTER>
+		
+		<BR>
+		<BR>
+		
+		Notice that an extension of the interfaces group : the ifExtension group
+		(1.3.6.1.2.1.12) was proposed in RFC 1229. It contains variables for the
+		broadcast and multicast traffic. These included :
+		<BR>
+		<LI>
+		The Generic Interface Extension
+		<A HREF="../main/glossar3.html#table" TARGET="glossary">Table</A>
+		. Additional general interface variables
+		about multicast and broadcast traffic.
+		<LI>
+		The Generic Interface Test Table. Variables that can launch a test, and
+		variables that contain the results of the most recent test.
+		<LI>
+		The Generic Receive Address table. For each interface, a list of all of the
+		addresses for which the
+		<A HREF="../main/glossar2.html#interf" TARGET="glossary">interface</A>
+		will accept traffic.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			&nbsp;&nbsp;Version 2 Improvements
+		</FONT>
+		<BR>
+		<BR>
+		With
+		<A HREF="../main/glossar3.html#v2" TARGET="glossary">SNMP V2</A>
+		, there are some improvements that were proposed in
+		<A HREF="../main/glossar3.html#rfc" TARGET="glossary">RFC</A>
+		1573. The
+		update
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		is made up of five tables :
+		<UL>
+			<LI>
+			The original
+			<A HREF="../main/glossar2.html#mib2" TARGET="glossary">MIB-II</A>
+			interface table switched to deprecated status.
+			<LI>
+			An improved version of the interfaces extensions table.
+			<LI>
+			A stack table that describes the relationships between interface sublayers.
+			<LI>
+			The generic interfaces test table, improved and updated with SNMP V2 features.
+			<LI>
+			A slightly modified receive address table, listing the media addresses for an
+			interface.
+		</UL>
+
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+		<BR CLEAR="ALL">
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mgroup20.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup2.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup22.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+
+	</BODY>
+	
+</HTML>

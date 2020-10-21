@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MIB II
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		<CENTER>
+			<IMG SRC="images/mib2tit.gif" WIDTH="176" HEIGHT="52" ALT="MIB II">
+		</CENTER>
+		<BR>
+
+		The original
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		for managing a
+		<A HREF="../main/glossar3.html#tcpip" TARGET="glossary">TCP/IP</A>
+		
+		<A HREF="../main/glossar2.html#internet" TARGET="glossary">internet</A>
+		(now called MIB-I) was defined
+		in
+		<A HREF="../main/glossar3.html#rfc" TARGET="glossary">RFC</A>
+		1066 in 1988 and was updated in RFC 1156 in 1990. The MIB-II, published
+		in RFC 1213 in 1991, added a number of useful variables missing from MIB-I.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>Guidelines
+</B>			</I>
+		</FONT>
+		<BR>
+		MIB variables have to be simple elements because of the purpose of the SNMP.
+		So these variables are elementary
+		stand-alone quantities, integers, octet strings, or object identifiers.
+		Sometimes variables are logically organised into tables.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>Extensibility</B>
+			</I>
+		</FONT>
+		<BR>
+		The tree of MIB variables does not have limits, it can grow and grow... So, it
+		is not surprising that definitions need to be improved or updated occasionally.
+		If the improvement involves a major change, an updated version of the
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		will
+		simply define a completely new variable and mark the old one as deprecated or
+		outright obsolete.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				The MIB-II tree
+			</I>
+		</FONT>
+		<BR>
+		Eleven groups are referenced in the original
+		<A HREF="../main/glossar2.html#mib2" TARGET="glossary">MIB-II</A>
+		document (RFC 1213). One of
+		these,
+		<A HREF="../main/glossar1.html#cmot" TARGET="glossary">CMOT</A>
+		(
+		<A HREF="../main/glossar2.html#iso" TARGET="glossary">ISO</A>
+		Common Management Information on top of
+		<A HREF="../main/glossar3.html#tcpip" TARGET="glossary">TCP/IP</A>
+		), is no more
+		used because this project was abandoned. The 10 remaining groups describe the
+		most basic information needed to manage a TCP/IP internet.
+		<BR>
+		<BR>
+		<BR>
+		
+		<APPLET CODE="tree.class" HEIGHT=310 WIDTH=160 ALIGN="LEFT">
+			<PARAM NAME="TITLE" value="MIB II">
+			<PARAM NAME="IDENTIFIER" value="1.3.6.1.2.1.">
+			<PARAM NAME="LEVEL1SUB0LABEL0" value="1 System">
+			<PARAM NAME="LEVEL2SUB0LABEL0" value="2 Interfaces">
+			<PARAM NAME="LEVEL3SUB0LABEL0" value="3 at">
+			<PARAM NAME="LEVEL4SUB0LABEL0" value="4 ip">
+			<PARAM NAME="LEVEL5SUB0LABEL0" value="5 icmp">
+			<PARAM NAME="LEVEL6SUB0LABEL0" value="6 tcp">
+			<PARAM NAME="LEVEL7SUB0LABEL0" value="7 udp">
+			<PARAM NAME="LEVEL8SUB0LABEL0" value="8 egp">
+			<PARAM NAME="LEVEL9SUB0LABEL0" value=" ">
+			<PARAM NAME="LEVEL10SUB0LABEL0" value="10 transmission">
+			<PARAM NAME="LEVEL11SUB0LABEL0" value="11 snmp">
+			
+			
+		</APPLET>
+		<BR>
+		
+		
+		
+		<IMG SRC="../images/round.gif" ALIGN="MIDDLE" HSPACE="2">
+		&nbsp;
+		<A HREF="mdataty1.html"><IMG SRC="images/tsnmdata.gif" WIDTH="312" HEIGHT="42" ALT="DATATYPES SNMP" BORDER="0" ALIGN="MIDDLE"></A>
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			<BR>
+&nbsp;&nbsp;&nbsp;(&nbsp;Simple&nbsp;/&nbsp;OBJECT&nbsp;IDENTIFIER&nbsp;)
+		</FONT>
+		<BR>
+		<BR>
+		
+		
+		<IMG SRC="../images/round.gif" ALIGN="MIDDLE" HSPACE="2">
+		&nbsp;
+		<A HREF="framemib.html" TARGET="_top"><IMG SRC="images/tmibgrou.gif" WIDTH="403" HEIGHT="45" ALT="Each group of MIB II" BORDER="0" ALIGN="MIDDLE"></A><BR>
+
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			&nbsp;&nbsp;&nbsp;(&nbsp;1,2,3,4,5,6,7,8,11&nbsp;)
+		</FONT>
+		
+	</BODY>
+	
+</HTML>

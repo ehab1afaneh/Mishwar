@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MONITORING : Events
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		<CENTER>
+			
+			<IMG SRC="images/tevent.gif" WIDTH="118" HEIGHT="36" ALT="EVENTS">
+			 <BR>
+			<FONT SIZE="+2" FACE="comic sans ms">
+				(1.3.6.1.2.1.16.9)
+			</FONT>
+		</CENTER>
+		<BR>
+		<BR>
+		This group includes the Event Table and the Log Table. The Event Table
+		define the notification that takes place when an event is triggered.
+		One of the notification way is to write an entry in the Log Table.
+		<BR>
+		<BR>
+		<LI>
+		The Event Table.
+		<BR>
+		Events are configured in the Event Table. An entry identifies an event and
+		indicates an action (logging, sending a 
+		<A HREF="../main/glossar3.html#trap" TARGET="glossary">trap</A>
+		).
+		<BR>
+		If a trap is required, the eventCommunity variable said where it has
+		to be send, another variable knows when this event was last triggered.
+		<BR>
+		<BR>
+		<LI>
+		Log Table.
+		<BR>
+		This table records each event that needs to be logged. It provides the event
+		number, an index that distinguishes occurrences of the same event, the
+		occurrence time and an implementation-specific event description.
+		<BR>
+		<BR>
+		<LI>
+		Event, Alarms and Packet Matching.
+		<BR>
+		The 
+		<A HREF="../main/glossar1.html#alarm" TARGET="glossary">alarm</A>
+		 table sets up problem detection. A detected alarm points to an event
+		that defines warning and action : if an alarm rising or falling Threshold is
+		crossed, a corresponding event is defined in a variable. The variable points to
+		an entry in the Event Table and it indicates what to do (nothing, write an
+		entry in the log table, send a trap, or both log and trap).
+		<BR>
+		The packet matching can also produce an event. The entry in the Channel Table
+		identifies  the index of an event to be triggered when a 
+		<A HREF="../main/glossar3.html#packet" TARGET="glossary">packet</A>
+		 match is
+		found. This event tells what to do (log and / or trap).
+		<BR>
+		
+		<BR>
+		
+		DESIGNING REPORTS : A lot of information are provided by 
+		<A HREF="../main/glossar2.html#monitor" TARGET="glossary">monitors</A>
+		. And they
+		offer a lot of different displays for the variables. Monitors offer some type of
+		report design tools that make it easy to select variables and displays in any
+		format.
+		<BR>
+		<BR>
+
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="moalarm8.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mormon0.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="../snmp2/indexv2.html" TARGET="_top"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+		
+		
+	</BODY>
+	
+</HTML>

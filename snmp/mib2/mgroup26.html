@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MIB II Groups : User Datagram Protocol (UDP) Group
+		</TITLE>
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+			<B>	The User Datagram Protocol (udp) Group (1.3.6.1.2.1.7)
+</B>			</I>
+		</FONT>
+		<BR>
+		<BR>
+		
+		<APPLET CODE="tree.class" HEIGHT=250 WIDTH=220 HSPACE=15 VSPACE=10 ALIGN="LEFT">
+			<PARAM NAME="TITLE" value="udp">
+			<PARAM NAME="IDENTIFIER" value="1.3.6.1.2.1.7">
+			<PARAM NAME="LEVEL1SUB0LABEL0" value="1 udpInDatagrams">
+			<PARAM NAME="LEVEL2SUB0LABEL0" value="2 udpNoPorts">
+			<PARAM NAME="LEVEL3SUB0LABEL0" value="3 udpInErrors">
+			<PARAM NAME="LEVEL4SUB0LABEL0" value="4 udpOutDatagrams">
+			<PARAM NAME="LEVEL5SUB0LABEL0" value="5 udpTable">
+			<PARAM NAME="LEVEL5SUB1LABEL0" value="1 udpEntry">
+			<PARAM NAME="LEVEL5SUB1LABEL1" value="1 udpLocalAddress">
+			<PARAM NAME="LEVEL5SUB1LABEL2" value="2 udpLocalPort">
+		</APPLET>
+		
+		<UL>
+			
+			The 
+			<A HREF="../main/glossar3.html#udp" TARGET="glossary">udp</A>
+			 subtree is composed of some individual statistics variables and a table
+			that records UDP services that are actively listening for clients.
+			
+			<BR>
+			<BR>
+			
+			<FONT SIZE="+1" FACE="Comic Sans MS">
+				UDP Traffic Statistics
+			</FONT>
+			<BR>
+			<BR>
+			As UDP is a quite simple protocol, its statistics variables in this 
+			<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+			 shows
+			that fact. There are counts of incoming and outgoing UDP 
+			<A HREF="../main/glossar1.html#datagram" TARGET="glossary">datagrams</A>
+			. The number
+			of received UDP datagrams for which there was no application at the destination
+			port is also counted.
+			<BR>
+		</UL>
+		<BR CLEAR="ALL">
+		The figure below is a 
+		<A HREF="../main/glossar1.html#cased" TARGET="glossary">Case diagram</A>
+		 that shows the flow of UDP
+		datagrams entering and leaving a system.
+		<BR>
+		<BR CLEAR="ALL">
+		<CENTER>
+			<IMG SRC="images/mib2appl.gif" WIDTH="445" HEIGHT="59" ALT="Application">
+			<BR>
+			<IMG SRC="images/mibudp.gif" WIDTH="445" HEIGHT="285" ALT="">
+			<BR>
+			<IMG SRC="images/mib2ip.gif" WIDTH="445" HEIGHT="59" ALT="IP">
+			<BR>
+			<BR>
+			
+			<B>
+				<U>
+					Case diagram showing UDP datagram flows
+				</U>
+			</B>
+		</CENTER>
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The UDP Listener Table
+		</FONT>
+		<BR>
+		<BR>
+		
+		This table records UDP listener information that are the 
+		<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+		 Addresses and UDP
+		port numbers in use by local applications that are waiting for UDP datagrams.
+		These applications are called listeners.
+		<BR>
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+		<BR CLEAR="ALL">
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mgroup25.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup2.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup27.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+		
+	</BODY>
+	
+</HTML>

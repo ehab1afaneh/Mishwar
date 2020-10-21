@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP Managing Interface : Frame Relay Interface
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+<BR>
+<CENTER>
+				<IMG SRC="images/tmfri.gif" WIDTH="595" HEIGHT="43" ALT="MANAGING FRAME RELAY INTERACE">
+</CENTER><BR>
+
+		
+		Created in 1990, Frame Relay 
+		<A HREF="../main/glossar2.html#interf" TARGET="glossary">interface</A>
+		 has points in common with the 
+		<A HREF="../main/glossar3.html#x25" TARGET="glossary">X25</A>
+		standard interface. Like X25, a single interface is used to access multiple
+		destinations, and like X25, 
+		<A HREF="../main/glossar3.html#vc" TARGET="glossary">virtual circuits</A>
+		 are used to exchange information
+		between devices. On the other hand, Frame Relay operates at the physical and
+		data link layers only in order to provide best frame delivery service.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Virtual Circuits
+		</FONT>
+		<BR>
+		<BR>
+		
+		Permanent Virtual Circuits (PVCs) are connecting a frame relay user’s site to
+		selected remote sites. A PVC always links the same pair of sites.
+		<BR>
+		The figure below shows how a site A can be connected to sites B, C or D by
+		means of virtual circuits. Outgoing 
+		<A HREF="../main/glossar1.html#frame" TARGET="glossary">frames</A>
+		 from site A to any other site pass
+		through a point-to-point link joining the site A to the network. Similarly,
+		incoming frames are passed to site A across the point-to-point link.
+		<BR>
+		<BR>
+		
+		
+		<CENTER>
+			<IMG SRC="images/manfrar1.gif" WIDTH="485" HEIGHT="458" ALT="Frames transmitted to and from sevral sites">
+			<BR>
+			<BR>
+			
+			<B>
+				<U>
+					Frames transmitted to and from sevral sites.
+				</U>
+			</B>
+		</CENTER>
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The Data Link Connection Identifier
+		</FONT>
+		<BR>
+		<BR>
+		
+		Each incoming and outgoing frame contains a number (
+		<A HREF="../main/glossar1.html#dlci" TARGET="glossary">the Data Link Connection Identifier or DLCI</A>
+		) that identifies its virtual circuit. The DLCI number is not
+		the same along the network even if the virtual circuit is the same. That means
+		that a virtual circuit identified by the number 37 at site A might appear as
+		circuit number 17 at site B. It is the network that have to fill in a DLCI that
+		means something to site A before passing the frame down the link to site A. The
+		figure below shows an example of how local DLCIs can be used to identify
+		virtual circuits between sites A, B, C and D.
+		<BR>
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="images/mandcl2.gif" WIDTH="483" HEIGHT="450" ALT="Assignement of DLCIs">
+			<BR>
+			<BR>
+			
+			<B>
+				<U>
+					Assignement of DLCIs.
+				</U>
+			</B>
+		</CENTER>
+		<BR>
+		<BR>
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+			<B>	The Frame Relay MIB (1.3.6.1.2.1.10.32)
+</B>			</I>
+		</FONT>
+		<BR>
+		<BR>
+		The Frame Relay 
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		 was created in 
+		<A HREF="../main/glossar3.html#rfc" TARGET="glossary">RFC</A>
+		 1315 and contains three groups :
+		<BR>
+		<LI>
+		<A HREF="#datalnk"><B> The Data Link Connection Management Table</B></A>
+		<LI>
+		<A HREF="#circuit"><B> The Circuit Table</B></A>
+		<LI>
+		<A HREF="#error"><B> The Error Table</B></A>
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			<A NAME="datalnk">Data Link</A>
+			 Connection Management Table
+		</FONT>
+		<BR>
+		<BR>
+		The device user periodically polls the network by sending a "keepalive" status
+		inquiry, it also requests a full status report at regular intervals.
+		<BR>
+		The Data Link Connection Management Table contains configuration parameters
+		that include the base polling intervals and the number of intervals between
+		status requests.
+		<BR>
+		Other parameters indicate the maximum number of virtual circuits that can be
+		opened and whether multicasting is support. For example, a multicast to all
+		circuits partner asking for their 
+		<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+		 addresses can be used to build an Address
+		Resolution Table.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The Frame Relay 
+			<A NAME="circuit">Circuit Table</A>
+		</FONT>
+		<BR>
+		<BR>
+		
+		The Frame Relay Circuit Table contains each interface/DLCI combination and an
+		entry for each circuit. It is explained because one frame relay interface can
+		support multiple virtual circuits, each identified by a DLCI, and because a
+		device can support several frame relay interfaces.
+		<BR>
+		An entry records the Circuit Throughput, Committed Burst, and Excess burst. It
+		also contains counts of incoming and outgoing traffic, and indicates the
+		frequency of incoming and outgoing congestion for each circuit. All the
+		statistical counts for a virtual circuit are measured from the time that the
+		virtual circuit was created.
+		<BR>
+		<BR>
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The Frame Relay 
+			<A NAME="error">Error </A>
+			Table
+		</FONT>
+		<BR>
+		<BR>
+		
+		The Frame Relay Error Table records the most recent errors for each interface.
+		Each error is stored as a bad data frame or as a bad management frame and the
+		time at which the error was detected is also recorded.
+		<BR>
+		<BR>
+
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mppp2.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="managing.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="../monitoring/indexmon.html" TARGET="_top"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+
+		
+	</BODY>
+	
+</HTML>

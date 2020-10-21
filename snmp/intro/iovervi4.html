@@ -1,0 +1,693 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP Introduction : Overview of SNM and MIB
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<CENTER>
+			<IMG SRC="images/tovervie.gif" WIDTH="497" HEIGHT="36" ALT="OVERVIEW OF SNM and MIB"  ALIGN="MIDDLE" BORDER="0">
+			
+		</CENTER>
+		<BR>
+		
+		The devices in the network contain information about themselves (like
+		parameters and statistics). Devices have current status that indicates if the
+		running conditions are healthy and many interesting knowing about its
+		neighbourhood (active stations, statistics, problems).
+		<BR>
+		<BR>
+		This information are the heart of Simple Network Management. The key elements
+		are the following :
+		<BR>
+		<BR>
+		
+		<LI>
+		What piece of information is interesting ?
+		<BR>
+		<UL>
+			The interesting information have been conscripted. So, it leads to a
+			standardisation of the form and meaning of information stored across many
+			different vendors products.
+		</UL>
+		<BR>
+		
+		<LI>
+		How to name it ?
+		<BR>
+		<UL>
+			You need the name of an item to ask for it. So, the management framework include
+			a well-defined way to assign names.
+		</UL>
+		<BR>
+		
+		<LI>
+		How to get it or change it ?
+		<BR>
+		<UL>
+			<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+			has become the nick for the entire Simple Network Management framework,
+			but SNMP refers only to a part of the framework that gets information from
+			device and changes the values (of the configuration parameters).
+		</UL>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The Management Information' Nature
+		</FONT>
+		<BR>
+		<BR>
+		
+		What kind of configuration, status and statistical information are associated
+		with a device ?
+		<BR>
+		<LI>
+		Any network node has one or more interface to media.
+		<BR>
+		<LI>
+		Network interface has a defined configuration type (e.g. Ethernet,
+		<A HREF="../main/glossar3.html#x25" TARGET="glossary">X.25</A>
+		, and
+		so on).
+		<BR>
+		<LI>
+		Interface have an operational status of Up, Down and Testing.
+		<BR>
+		<LI>
+		A system normally counts
+		<A HREF="../main/glossar2.html#interf" TARGET="glossary">interface</A>
+		statistics (e.g. number of send and receive
+		<A HREF="../main/glossar1.html#frame" TARGET="glossary">frames</A>
+		...)
+		<BR>
+		<BR>
+		In the beginning,
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		, was created to manage
+		<A HREF="../main/glossar3.html#tcpip" TARGET="glossary">TCP/IP</A>
+		networks. Thus information
+		a bout
+		<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+		and
+		<A HREF="../main/glossar3.html#tcp" TARGET="glossary">TCP</A>
+		received the earlier notice. Then later, information was
+		described far the activities of other protocols (such as DC Net, AppleTalk,
+		IPX/SPX,), and every function of the multi-protocol
+		<A HREF="../main/glossar3.html#router" TARGET="glossary">Routers</A>
+		that are linchpins
+		nowadays need to be managed.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			MIBs
+		</FONT>
+		<BR>
+		<BR>
+		
+		The information may be stored at device as a combination of switchs, settings,
+		hardware counters, in memory variables and tables or files. This can be
+		considered conveniently as a database.
+		<BR>
+		
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		standards, use this logical database of network management information. It
+		is called a
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		(Management Information Base). The internal structure of those
+		MIBs are not important for the manager, but the way and the accessibility of the
+		data base is very important.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Internet-Standard Management Model
+		</FONT>
+		<BR>
+		<BR>
+		
+		This Internet Standard Management Model enable network
+		<A HREF="../main/glossar2.html#manager" TARGET="glossary">manager</A>
+		to examine
+		device data and update configuration and status information.
+		<BR>
+		<BR>
+		
+		<A HREF="../main/glossar1.html#agent" TARGET="glossary">AGENT</A>
+		SOFTWARE is installed in each device. It receive incoming message from
+		the manager. Message request read or write of device’s data.
+		<BR>
+		
+		The agent receive messages and send a
+		<A HREF="../main/glossar3.html#rep" TARGET="glossary">response</A>
+		back. Agent does not have to wait
+		for order to act, if a serious problem arises or a significant
+		<A HREF="../main/glossar1.html#event" TARGET="glossary">event</A>
+		occurs, it
+		send a
+		<A HREF="../main/glossar3.html#trap" TARGET="glossary">TRAP</A>
+		(notification message) to the manager.
+		<BR>
+		<BR>
+		<CENTER>
+			<IMG SRC="../images/i4manage.gif" WIDTH="470" HEIGHT="427" ALT="">
+			<BR>
+			<U>
+				<B>
+					Interactions between a manager and an agent.
+				</B>
+			</U>
+		</CENTER>
+		<BR>
+		
+		MANAGER SOFTWARE are in management station (send message to AGENT and receive
+		Trap and Responses). It use
+		<A HREF="../main/glossar3.html#udp" TARGET="glossary">UDP</A>
+		protocol to carries its messages.
+		<BR>
+		
+		Finally there is one application that enable end user to control the manager
+		software and view network information.
+		<BR>
+		<BR>
+		
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Network Management Application
+		</FONT>
+		<BR>
+		<BR>
+		
+		These application are not standardised. Management station vendors compete
+		vigorously in providing the best interface ( graphical, intuitive information
+		display, application, the best toolkit for adding specialised application...).
+		<BR>
+		<BR>
+		
+		
+		What do those application do ? (here is a few examples)
+		<BR>
+		<LI>
+		They map the tested LAN (What and which type of device are there, other
+		station)
+		<LI>
+		Render graphs of the traffic report
+		<LI>
+		Managers can select its own parameters ( e.g. : significant event, spontaneous
+		problems report, message from other applications)
+		<BR>
+		<BR>
+		
+		Thus information are useful, and
+		<A HREF="../main/glossar2.html#lan" TARGET="glossary">LAN</A>
+		&nbsp;&nbsp;
+		<A HREF="../main/glossar2.html#monitor" TARGET="glossary">monitors</A>
+		add special capabilities to
+		network management. It is able to examine all of the traffic on a LAN based on
+		any criteria (such as traffic for a given protocol, traffic between a selected
+		pair of station, traffic containing a selected bit pattern).
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			MIB Variables
+		</FONT>
+		<BR>
+		<BR>
+		
+		The problem is to know what information have to be kept. The information have
+		to be standardise without stifling useful additions and extensions. The
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		community use the following approach :
+		<BR>
+		<LI>
+		Define groups of useful parameters
+		<LI>
+		Fine-tune of the fields after several month of experience (remove parameters
+		and add new one)
+		<LI>
+		Committees of experts to define MIB variables for special technologies
+		(
+		<A HREF="../main/glossar1.html#bridge" TARGET="glossary">bridges</A>
+		,
+		<A HREF="../main/glossar3.html#tr" TARGET="glossary">token-ring</A>
+		interfaces)
+		<LI>
+		Add vendor-specific extension
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			MIB I
+		</FONT>
+		<BR>
+		<BR>
+		
+		The first
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		. As SNMP was originally developed to satisfy requirement to
+		manage TCP/IP communications on the
+		<A HREF="../main/glossar2.html#internet2" TARGET="glossary">Internet</A>
+		, the MIB I concentrated on
+		information specific to TCP/IP. This first version included :
+		<BR>
+		<LI>
+		System description
+		<LI>
+		The number of networking interfaces that has a system (Ethernet adapters,
+		serial ports ..)
+		<LI>
+		<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+		address associated with each network interface
+		<LI>
+		Counts the numbers of incoming and outgoing
+		<A HREF="../main/glossar1.html#datagram" TARGET="glossary">datagrams</A>
+		<LI>
+		Table of information about active TCP connections
+		<BR>
+		<BR>
+		
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Technology Extensions
+		</FONT>
+		<BR>
+		<BR>
+		
+		The
+		<A HREF="../main/glossar2.html#iab" TARGET="glossary">IAB</A>
+		encouraged groups of vendors to define MIBs needed to manage their
+		products.
+		<A HREF="../main/glossar3.html#rfc" TARGET="glossary">RFC</A>
+		1286 describe a MIB for bridges, it expresses the philosophy of
+		MIB construction.
+		<BR>
+		It needs to keep MIB as simple as possible. And it was done thanks to the
+		following criteria :
+		<BR>
+		<LI>
+		A small set of essential objects at starting, then you add only the objects
+		that are needed.
+		<LI>
+		Required objects are essential for either fault or configuration management
+		<LI>
+		Consider evidence of current use and/or utility
+		<LI>
+		Limit total number of objects
+		<LI>
+		Exclude object derived from others
+		<LI>
+		Avoid causing critical sections to be heavily instrumented
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Private Enterprise Extensions
+		</FONT>
+		<BR>
+		<BR>
+		
+		Any vendor can request a Branch or a subtree in the tree of management
+		information. And define its own variable necessary for its devices.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			SNM Protocol
+		</FONT>
+		<BR>
+		<BR>
+		
+		How to get the information stored in the MIB. SNM Protocol identifies :
+		<BR>
+		<LI>
+		Type of messages that can be sent between Manager and Agent
+		<LI>
+		Message format
+		<LI>
+		Communication protocol used
+		
+		<BR>
+		<BR>
+		
+		<CENTER>
+			<IMG SRC="../images/i4mess.gif" WIDTH="469" HEIGHT="436" ALT="">
+			<BR>
+			<B>
+				<U>
+					Messages sent between a
+					manager
+					and an
+					agent.
+				</U>
+			</B>
+		</CENTER>
+		
+		
+		<BR>
+		<BR>
+		
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Structure and Identification of Management Information
+		</FONT>
+		<BR>
+		<BR>
+		<LI>
+		Each device contains a database of information that it would be useful to know
+		about. This database is called MIB.
+		<LI>
+		SNMP define a simple set of messages that let us read and write database
+		variables, and receive trap reports of problem events.
+		<BR>
+		<BR>
+		
+		<UL>
+			But there is still the questions :
+			<BR>
+			How to define and describe MIB variables, how are different variables related
+			to one another, how to identify a variable that we want to read or write, and
+			how should the variables be represented ?
+		</UL>
+		
+		The answers are given in the RFC 1155 Structure and Identification of
+		Management Information for TCP/IP-based Internets. This RFC follows the ISO /
+		<A HREF="../main/glossar2.html#ccitt" TARGET="glossary">CCIT</A>
+		lead in dealing with the four following issues :
+		<BR>
+		<BR>
+		<LI>
+		MIB variables are defined and described using the
+		<A HREF="../main/glossar1.html#asn1" TARGET="glossary">ASN.1</A>
+		(Abstract Syntax
+		Notation 1) datatype definition language. It allow to create data structures,
+		like in other languages such as Pascal or C, plus a few additional capabilities
+		to go beyond the possibilities of other languages.
+		<LI>
+		Network management information has been incorporated into a large tree
+		administered by
+		<A HREF="../main/glossar2.html#iso" TARGET="glossary">ISO</A>
+		and
+		<A HREF="../main/glossar2.html#ccitt" TARGET="glossary">CCITT</A>
+		(the tree structure helps us to visualise the
+		relationship between variables).
+		<LI>
+		The Identifiers for the Network Management are issued from the tree. The name
+		of a parameter is a sequence of number along the path from the root of the tree.
+		<LI>
+		<A HREF="../main/glossar1.html#ber" TARGET="glossary">Basic Encoding Rules</A>
+		(BER) are used for translations of value of ASN.1
+		variables into a fixed transmission format. Data will always be formatted in
+		the same way (between managers and agents). Then the
+		<A HREF="../main/glossar1.html#agent" TARGET="glossary">agent</A>
+		and the
+		<A HREF="../main/glossar2.html#manager" TARGET="glossary">manager</A>
+		translate in its own native language.
+		<BR>
+		<BR>
+		
+		The SNM framework is very modular. It is has been a good choice motivated by
+		the desire to do ease later migration to ISO management standards.
+		<BR>
+		Modularity adds new branch to the management information  trees without any
+		changes of protocol.
+		<BR>
+		The protocol is based on Read, Write and
+		<A HREF="../main/glossar1.html#event" TARGET="glossary">Event</A>
+		messages thus if we want to
+		perform an action we just define the variable that causes the action when it is
+		set to 1. A new action is just a new variable in the MIB.
+		<BR>
+		<BR>
+		
+		Thus enormous expansions are possible without any change on the protocol.
+		<BR>
+		
+		<BR>
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			
+			<I>
+				<B>
+					STUCTURE and IDENTIFICATION of MANAGEMENT INFORMATION.
+				</B>
+			</I>
+			
+		</FONT>
+		
+		<BR>
+		
+		<BR>
+		
+		We are going to introduce the simple template that is issued to define network
+		management variables and we are going to be familiar with the tree-structured
+		framework.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Structure of the Managed Objects
+		</FONT>
+		<BR>
+		<BR>
+		
+		The management community use the OBJECT term instead of variable. An
+		object has the following specificities : a name, attributes and a set of
+		operation
+		that can be performed on the object.
+		<BR>
+		<BR>
+		
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		describe managed objects that hold the Network information. A
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		is a set
+		of managed objects.
+		<BR>
+		<BR>
+		
+		A managed object is viewed as :
+		<BR>
+		<LI>
+		a unique name,
+		<A HREF="../main/glossar2.html#oi" TARGET="glossary">OBJECT IDENTIFIER</A>
+		<BR>
+		<LI>
+		Attributes
+		<BR>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- datatype
+		<BR>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- description (including details required to
+		build the correct implementation)
+		<BR>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- status information.
+		<BR>
+		<LI>
+		Valid operations that can be performed on the object (read, write, set)
+		<BR>
+		<BR>
+		
+		VARIABLES :
+		<BR>
+		Stored at a device is an individual instance of managed object. A variable have
+		to be implemented so that it conforms to its MIB object definition.
+		<BR>
+		<BR>
+		The formal template used to define MIB is the following one (here is the example
+		of sysDescr in RCF 1213)
+		<BR>
+<PRE>
+sysDescr OBJECT-TYPE
+	SYNTAX DisplayString (SIZE (0.255))
+	ACCESS read-only
+	STATUS mandatory
+	DESCRIPTION
+		„Textual description of the entity.
+		This value include the full name and
+               the version identification of the system’s
+		hardware type, software operating-system
+		and networking software. It may only
+		contain ASCII printable characters "
+	::= { system 1 }
+</PRE>
+		<BR>
+		
+		DATATYPE FOR MIB VARIABLES are simple such as integer or octet string.
+		<BR>
+		<BR>
+		
+		OTHER OBJECTS
+		<BR>
+		The interesting thing with the object-oriented point of view is that almost
+		everything can be considered as an object.
+		<BR>
+		<BR>
+		ISO AND CCITT STRUCTURE OF INFORMATION
+		<BR>
+		<A HREF="../main/glossar2.html#iso" TARGET="glossary">ISO</A>
+		and
+		<A HREF="../main/glossar2.html#ccitt" TARGET="glossary">CCITT</A>
+		use the idea of structuring information into global naming tree
+		and assigning an identifier to each objects.
+		<BR>
+		<BR>
+		<CENTER>
+			<IMG SRC="images/iso-treeg.gif" WIDTH="497" HEIGHT="419" ALT="The main ISO/CCITT Tree">
+			<BR>
+			
+			<B>
+				
+				<U>
+					The main ISO/CCITT Tree
+				</U>
+			</B>
+			<BR>
+			<BR>
+			<BR>
+			
+			Below the developpement of the MIB Node.
+			<BR>
+			<BR>
+			<IMG SRC="images/iso-tree0.gif" WIDTH="611" HEIGHT="246" ALT="The MIB node and its object identifiers.">
+			<BR>
+			<B>
+				<U>
+					The MIB node and its object identifiers.
+				</U>
+			</B>
+			<BR>
+			
+			
+		</CENTER>
+		<BR>
+		<BR>
+		
+		ADMINISTRATIVE NODES IN THE ISO/CCITT TREE
+		<BR>
+		A node can be used as a register that indicates who is in charge of the objects
+		under it. A node is defined in the tree for each administrative entity.
+		<BR>
+		<BR>
+		
+		THE SUBTREE UNDER INTERNET CONTROL
+		<BR>
+		Under
+		<A HREF="../main/glossar2.html#internet" TARGET="glossary">internet</A>
+		there are 6 nodes. For this part about SNMP V.1 we are concerned
+		with the mgmt, experimental and private  node. They are administrated by the
+		Internet Assignment Numbers Authority.
+		The mgmt (management) subtree is made of all accepted standard network
+		management variables.
+		Experimentation and research are under the experimental node.
+		<BR>
+		<BR>
+		
+		GROUPS IN MIB MODULE
+		<BR>
+		A
+		<A HREF="../main/glossar2.html#module" TARGET="glossary">module</A>
+		is a publication made by experts defining MIB object for a particular
+		area of technology.
+		<A HREF="../main/glossar2.html#mibg" TARGET="glossary">Groups</A>
+		are smaller units than large module. It is a group of objects. Useful
+		groups can be implemented by a vendor for a product.
+		<BR>
+		<BR>
+		
+		VENDOR MIB DEFINITIONS
+		<BR>
+		The private subtree enables private organisations to enhance the usefulness of
+		SNMP. Into its own part of the subtree, a vendor uses product identifiers an
+		the MIB definition that are needed to manage its products. Product identifiers
+		combined with the MIB-II system description variable allows a device to
+		identify itself precisely.
+		<BR>
+		<BR>
+		
+		GLOBAL TREE TO ASSIGN IDENTIFIERS
+		<BR>
+		The objects are a leaf node in the global tree. Each of the node is assigned a
+		label consisting of an integer and a quick description. The identifier of an
+		object is a series of integer guiding through the tree from the root to the
+		good leaf. This is called the
+		<A HREF="../main/glossar2.html#oi" TARGET="glossary">OBJECT IDENTIFIER</A>
+		.
+		<BR>
+		<BR>
+		
+		<LI>
+		The text part of each node helps to recognise what the string of number stands
+		for. This :
+		<TT>
+			iso_org_dod_internet_mgmt_mib-2_interfaces_ifTable_ifEntry_ifOperStatus
+		</TT>
+		is easier to understand than 1.3.6.1.2.1.2.2.1.8 the same in the number format.
+		<BR>
+		<BR>
+		
+		
+		<LI>
+		OBJECT IDENTIFIER indicates the kind of object that we want to know things
+		about. If the
+		<A HREF="../main/glossar1.html#bridge" TARGET="glossary">bridge</A>
+		or the
+		<A HREF="../main/glossar3.html#router" TARGET="glossary">router</A>
+		have more than one interface, we need to
+		know the good one we are interested in.
+		<BR>
+		
+		An instance identifier is used to indicate the precise value we want to see.
+		The variable has the form OBJECT IDENTIFER.value_we_want.
+		<BR>
+		
+		Using the preceding example we had 1.3.6.1.2.1.2.2.1.8 thus to have the third
+		interface (in that case it is an interface) we have 1.3.6.1.2.1.2.2.1.8.3.
+		<BR>
+		<BR>
+		
+		The principle is that to form a variable name from OBJECT IDENTIFIER, we only
+		have to add an index at the end that show the item we want to access.
+		<BR>
+		
+		In the case an object defining one-and-only type of thing (e.g. description of
+		a system, or its location). The variable is added a 0. The path is OBJECT
+		IDENTIFIER , and to have the parameter we are asking for OBJECT IDENTIFIER .0.
+		<BR>
+		<BR>
+		<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+			
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="iwhysnm3.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="intro.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="../protocol/indexpro.html" TARGET="_top"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+			<BR><BR>
+
+			
+		</CENTER>
+		
+		
+		
+	</BODY>
+	
+</HTML>

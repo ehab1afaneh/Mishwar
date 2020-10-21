@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MONITORING : Alarms
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		<CENTER>
+			
+			
+			<IMG SRC="images/talarms.gif" WIDTH="125" HEIGHT="33" ALT="ALARMS">
+			 
+			<BR>
+			<FONT SIZE="+2" FACE="Comic sans ms">
+				(1.3.6.1.2.1.16.3)
+			</FONT>
+		</CENTER>
+
+		<BR>
+		
+		When your network’s conditions are getting  worse, you want to know it and here
+		it comes from. You want it fast, not when everything get collapsed.
+		<BR>
+		The alarm group is tasked with the job of listing the set of symptoms that
+		spells
+		trouble. The 
+		<A HREF="../main/glossar1.html#alarm" TARGET="glossary">alarm</A>
+		 thresholds have to be configured for danger zone. Problems
+		may due to too much activity or too little activity.
+		<BR>
+		<BR>
+		
+		<LI>
+		Rising and Falling Threshold.
+		<BR>
+		When a network is going wrong, it usually stay as it is or gets only a little
+		better. The Rising Threshold is a threshold that is crossed once when things
+		begin to be wrong, a 
+		<A HREF="../main/glossar3.html#trap" TARGET="glossary">trap</A>
+		 is sent at this time.
+		<BR>
+		<BR>
+		The level may decrease a little bit and grow again to cross the Rising
+		Threshold, and you may receive a lot of
+		traps in that case. The Falling Threshold is there to save too many traps
+		sendings.
+		<BR>
+		<BR>
+		The Falling Threshold is a point under which the network states is normal. And
+		if
+		the level don’t cross the Falling Threshold before it rose again over the
+		Rising Threshold there won’t be traps.
+		<BR>
+		<BR>
+		
+		
+		<CENTER>
+			<IMG SRC="images/monalar1.gif" WIDTH="372" HEIGHT="250" ALT="Behavior crossing a Rising Thresholds">
+			<BR>
+			<BR>
+			<B>
+				<U>
+					Behavior crossing a Rising Thresholds.
+				</U>
+			</B>
+		</CENTER>
+		<BR>
+		<BR>
+		
+		<LI TYPE="DISC">
+		Configuring Alarms.
+		<BR>
+		The main values needed to configure the alarms are :
+		<BR>
+		<OL>
+			
+			<LI>
+			Monitoring interval overwhich data sample are made.
+			<LI>
+			Variable to be sampled.
+			<LI>
+			Rising and Falling Thresholds used to detect when trouble
+			starts and ends.
+			<LI>
+			Event (if any) that takes place when Rising Threshold is
+			crossed.
+			<LI>
+			Event (if any) that takes place when Falling Threshold is 	crossed.
+		</OL>
+		<BR>
+		
+		The threshold can only be set by numeric variables. Thresholds are only used for
+		<A HREF="../main/glossar2.html#gauge" TARGET="glossary">gauge</A>
+		, it is stupid to use threshold for a counter (even if it warps around).
+		For counter, a delta value is better to be used, then a threshold can be add.
+		<BR>
+		<BR>
+		
+		<LI>
+		Alarm Table.
+		<BR>
+		In the table the operator can configure the symptoms that spells trouble. An
+		entry identifies a variable, a time interval, the kind of count that has to be
+		tested, the threshold (rising and falling) with its corresponding event.
+		<BR>
+		<BR>
+
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mopktcp7.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mormon0.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="moevent9.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+
+	</BODY>
+	
+</HTML>

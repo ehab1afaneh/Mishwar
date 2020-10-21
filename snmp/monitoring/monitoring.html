@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		
+		
+		<TITLE>
+			Monitoring
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+
+	
+				<CENTER>
+					<IMG SRC="images/monitit.gif" WIDTH="243" HEIGHT="59" ALT="MONITORING">
+				</CENTER>
+	
+
+		<BR>
+		The simple part of the 
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		 only concern the agent with its ressources limitations. The management station
+		does not have those restrictions. A 
+		<A HREF="../main/glossar2.html#monitor" TARGET="glossary">monitor</A>
+		 is a smart, streetwise partner.
+		<BR>
+		<BR CLEAR="ALL">
+		
+		<APPLET CODE="tree.class" HEIGHT=270 WIDTH=160 ALIGN="LEFT">
+			<PARAM NAME="TITLE" value="Rmon">
+			<PARAM NAME="IDENTIFIER" value="1.3.6.1.2.1.16">
+			<PARAM NAME="LEVEL1SUB0LABEL0" value="1 RmonStatistics">
+			<PARAM NAME="LEVEL2SUB0LABEL0" value="2 RmonHistory">
+			<PARAM NAME="LEVEL3SUB0LABEL0" value="3 RmonAlarm">
+			<PARAM NAME="LEVEL4SUB0LABEL0" value="4 RmonHosts">
+			<PARAM NAME="LEVEL5SUB0LABEL0" value="5 RmonHostTopN">
+			<PARAM NAME="LEVEL6SUB0LABEL0" value="6 RmonMatrix">
+			<PARAM NAME="LEVEL7SUB0LABEL0" value="7 RmonFilter">
+			<PARAM NAME="LEVEL8SUB0LABEL0" value="8 RmonCapture">
+			<PARAM NAME="LEVEL9SUB0LABEL0" value="9 RmonEvent">
+		</APPLET>
+		
+		
+		What can be done by monitors ?
+		<BR>
+		<UL>
+			<LI>
+			watch a 
+			<A HREF="../main/glossar2.html#lan" TARGET="glossary">LAN</A>
+			 as a whole.
+			<LI>
+			gather information without polling and adding traffic.
+			<LI>
+			track the traffic flows that contribute the most to the network activity.
+			<LI>
+			detect failures hard to find by polling.
+			<LI>
+			find duplicate 
+			<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+			 address assignments.
+			<LI>
+			it can be configured to watch for signs of troubles (because it is
+			"intelligent" : made of a CPU, memory and hard-drive resources).
+			<LI>
+			it could be asked to send 
+			<A HREF="../main/glossar3.html#trap" TARGET="glossary">trap</A>
+			 message when an error counter passes over 			danger threshold.
+			<LI>
+			gather and tabulate many statistics. Monitor operator can configure the
+			monitor to show the data in the most significant way for the user.
+		</UL>
+		
+		Usually, monitors are attached to LANs, but it can watch 
+		<A HREF="../main/glossar3.html#wan" TARGET="glossary">wide area network (WAN)</A>
+		interfaces, track traffic and check whether errors stay within acceptable
+		bounds. They are bought because it is invaluable for problem diagnosis.
+		<BR>
+		<BR>
+		The variable of 
+		<A HREF="../main/glossar3.html#rmon" TARGET="glossary">RMON</A>
+		 are contained in the 
+		<A HREF="mormon0.html"><B> RMON MIB</B></A>
+		.
+		<BR>
+		<BR>
+	</BODY>
+</HTML>

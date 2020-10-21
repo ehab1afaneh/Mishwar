@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MIB II Groups : Adress Translation Group
+		</TITLE>
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>The Address Translation (at) Group (1.3.6.1.2.1.3)</B>
+			</I>
+		</FONT>
+		<BR>
+		<BR>
+		
+		The 
+		<A HREF="../main/glossar1.html#at" TARGET="glossary">Address Translation</A>
+		 (at) subtree was defined in MIB-I and consists of a
+		single 
+		<A HREF="../main/glossar3.html#table" TARGET="glossary">table</A>
+		 that contains the network layer address to 'physical' address
+		equivalences. Therefore, this table allows to transmit traffic to the nest-hop
+		system that is along the current best path to the destination. The next-hop
+		system may be a 
+		<A HREF="../main/glossar3.html#router" TARGET="glossary">router</A>
+		 or it may be the final destination.
+		<BR>
+		<BR>
+		
+		
+		
+		<APPLET CODE="tree.class" HEIGHT=200 WIDTH=200 HSPACE=15 ALIGN="LEFT">
+			<PARAM NAME="TITLE" value="at">
+			<PARAM NAME="IDENTIFIER" value="1.3.6.1.2.1.3">
+			<PARAM NAME="LEVEL1SUB0LABEL0" value="1 atTable">
+			<PARAM NAME="LEVEL1SUB1LABEL0" value="1 atEntry">
+			<PARAM NAME="LEVEL1SUB1LABEL1" value="1 atIfIndex">
+			<PARAM NAME="LEVEL1SUB1LABEL2" value="2 atPhysAddress">
+			<PARAM NAME="LEVEL1SUB1LABEL3" value="3 atNetAddress">
+		</APPLET>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			The Address Translation Table
+		</FONT>
+		<BR>
+		<BR>
+		The Address Translation Table contains the address mappings (or equivalences).
+		The addresses needed to be listed in the Address Translation Table are the ones
+		that we absolutely need to know in order to transmit traffic to a next-hop
+		system :
+		<UL>
+			<LI>
+			The Physical address (atPhysAddress) that is on directly connected subnetworks.
+			<LI>
+			The Network address (atNetAddress), corresponding to the physical address, that
+			is needed in order to route 
+			<A HREF="../main/glossar1.html#datagram" TARGET="glossary">datagrams</A>
+			 now (e.g. IP Address).
+		</UL>
+		
+		These address translation entries can be :
+		<UL>
+			<LI>
+			entered manually (telephone numbers...)
+			<LI>
+			discovered automatically by a special protocol such as the 
+			<A HREF="../main/glossar1.html#arp" TARGET="glossary">Address Resolution Protocol</A>
+			 (ARP)
+			<LI>
+			calculated automatically.
+		</UL>
+		
+		Some 
+		<A HREF="../main/glossar2.html#interf" TARGET="glossary">interfaces</A>
+		 do not use translation tables to determine address
+		equivalences ; if all interfaces are of this type, then the Address Translation
+		table is empty (has zero entry).
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			Deprecated Status of 
+			<I>
+				at
+			</I>
+			 in MIB-II
+		</FONT>
+		<BR>
+		<BR>
+		
+		
+		When MIB-II was written, the old 
+		<I>
+			at
+		</I>
+		 group was included without change, but was
+		<A HREF="../main/glossar1.html#depre" TARGET="glossary">deprecated</A>
+		 to conserve the compatibility between the two 
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIBs</A>
+		. It was decided
+		that it was better to place separate address translation tables within the MIBs
+		for each different Network Layer protocol.
+		<BR>
+	
+		<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+		<BR CLEAR="ALL">
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mgroup21.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup2.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mgroup23.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+		
+	</BODY>
+	
+</HTML>

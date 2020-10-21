@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP Managing Interfaces : PPP Interface
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+<BR>
+<CENTER>
+				<IMG SRC="images/tmppp.gif" WIDTH="430" HEIGHT="43" ALT="MANAGING PPP INTERACE">
+
+</CENTER><BR>
+
+		
+		The Point-to-Point Protocol (PPP) has been created in 
+		<A HREF="../main/glossar3.html#rfc" TARGET="glossary">RFC</A>
+		 1548 in order to
+		carry all of the protocol traffic between two locations onto a single
+		long-distance line.
+		<BR>
+		PPP is considered as an 
+		<A HREF="../main/glossar2.html#interf" TARGET="glossary">interface</A>
+		, and PPP entities will be listed in the
+		interfaces table. However, PPP will usually be layered on top of another,
+		lower-level interface, such as an RS-232.
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>The Protocols</B>
+			</I>
+		</FONT>
+		<BR>
+		<BR>
+		
+		There are several PPP Protocols :
+		<UL>
+			<LI>
+			A PPP Link Control Protocol (LCP) used to negotiate link options and open a
+			link. LCP negotiations can compress the 
+			<A HREF="../main/glossar1.html#frame" TARGET="glossary">frame</A>
+			 format, adjust limits on frame
+			sizes, choose an 
+			<A HREF="../main/glossar1.html#authen" TARGET="glossary">Authentication</A>
+			 protocol, and initiate link monitoring.
+			
+			<LI>
+			Separate Network Control Protocols (NCPs) used to negotiate options for the
+			different types of traffic the PPP will carry.
+			
+			<LI>
+			An optional Link Quality Monitoring Protocol used to enable each partner to
+			find out the rate of its successfully transmitted data.
+		</UL>
+		
+		<FONT SIZE="+2" COLOR="#00A088" FACE="Comic sans ms">
+			<I>
+				<B>The PPP MIB (1.3.6.1.2.1.10.23)</B>
+			</I>
+		</FONT>
+		<BR>
+		<BR>
+		
+		The PPP 
+		<A HREF="../main/glossar2.html#mib" TARGET="glossary">MIB</A>
+		 is made up of several groups, defined in different RFC documents.
+		We will introduce the following groups :
+		<BR>
+		<LI>
+		The 
+		<A HREF="#link"><B> PPP Link Group</B></A>
+		 is made up of a Link Status Table and a Link Configuration
+		Table.
+		<LI>
+		The 
+		<A HREF="#lqr"><B> PPP Link Quality Report (LQR) Group</B></A>
+		 is made up of a table of parameters and
+		statistics and a configuration table.
+		<LI>
+		The PPP Link Quality Report (LQR) Extensions Group holds the most recently
+		received LQR 
+		<A HREF="../main/glossar3.html#packet" TARGET="glossary">packet</A>
+		.
+		<LI>
+		The 
+		<A HREF="#security"><B> PPP Security Table</B></A>
+		 is made up of configuration and control variables that
+		relate to PPP security.
+		<LI>
+		The 
+		<A HREF="#ip"><B> PPP IP Group</B></A>
+		 is made up of configuration, status, and control variables
+		that relate to running 
+		<A HREF="../main/glossar2.html#ip" TARGET="glossary">IP</A>
+		 over PPP.
+		<LI>
+		The 
+		<A HREF="#bridge"><B> PPP Bridge Group</B></A>
+		 is made up of configuration, status, and control variables
+		that relate to 
+		<A HREF="../main/glossar1.html#bridge" TARGET="glossary">bridging</A>
+		 over PPP.
+		
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			<A NAME="link">The</A>
+			 PPP Link Group
+		</FONT>
+		<BR>
+		<BR>
+		
+		The PPP Link Group includes the Link Status Table and the Link Configuration
+		Table.
+		<BR>
+		The Link Status Table records configuration choices that have been established
+		for open links and also includes some error counts. The Link Configuration
+		Table contains preconfigured parameter choices desired by the local end.
+		<BR>
+		During the link configuration dialogue, parameters from the table are proposed
+		by one of the PPP link end. The other end can selectively reject any parameter
+		that it cannot support. Then, the local end will have to modify its request
+		until it is acceptable by the other side (or else abort the link).
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			<A NAME="lqr">The PPP Link Quality Report</A>
+			 (LQR) Group
+		</FONT>
+		<BR>
+		<BR>
+		
+		One, or both ends of a PPP link can choose to monitor their link. So, they can
+		ask a partner to transmit quality report at regular intervals via the PPP Link
+		Quality Report Protocol (LQR).
+		<BR>
+		The LQR Table contains information about the present status of Link Quality
+		Reporting. It indicates whether the link is currently good and records the
+		local end remote timers that determine how often reports are sent.
+		<BR>
+		<BR>
+		A Link Quality Report contains cumulative counts of :
+		<UL>
+			<LI>
+			Number of packets and octets that have been sent
+			<LI>
+			Number of received packets
+			<LI>
+			Number of incoming error packets, and packets discarded
+			<LI>
+			Number of good octets that have been received
+		</UL>
+		
+		The three first values listed above are obtained from variables already defined
+		in the interfaces MIB. For this reason, there is only two counters in the LQR
+		Table : the total number of Link Quality Reports that have been sent and
+		received.
+		<BR>
+		<BR>
+		The PPP LQR Configuration Table contains variables that records the monitoring
+		configuration for a link.
+		The PPP LQR Extensions Table contains a variable that holds the most recently
+		received LQR packet. This variable is used to see whether a link is "good" or
+		"bad".
+		<BR>
+		<BR>
+		
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			<A NAME="security">The PPP Security</A>
+			 Table
+		</FONT>
+		<BR>
+		<BR>
+		
+		
+		The PPP Security Table configures the protocols that will be proposed during
+		link negotiation and the order of preference in which they will be proposed.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			<A NAME="ip">The PPP IP</A>
+			 Group
+		</FONT>
+		<BR>
+		<BR>
+		
+		
+		The next step, after the establishment of the link and after any necessary
+		authentication, is the negotiation of the Network Control Protocols (NCP) for
+		the upper layer (layer 3) traffic that will be carried on the link. The PPP IP
+		Table reports IP NCP status information for a device’s PPP links. It indicates
+		whether PPP negotiation is completed and so has reached an opened state, and
+		whether TCP/IP compression is used when sending. The PPP IP Configuration Table
+		indicates whether TCP/IP compression should be negotiated.
+		<BR>
+		<BR>
+		
+		<FONT SIZE="+1" FACE="Comic Sans MS">
+			<A NAME="bridge">The PPP Bridge</A>
+			 Group
+		</FONT>
+		<BR>
+		<BR>
+		
+		To use bridging across the PPP link, the Bridge Network Control Protocol is
+		used to initialise and terminate the link.
+		<BR>
+		The PPP Bridge Table contains the NCP status information necessary to a
+		device’s PPP link. It indicates whether the Bridge NCP has reached an opened
+		state, reports the eventually use of compression, and the use of a 
+		<A HREF="../main/glossar2.html#lan" TARGET="glossary">LAN</A>
+		identification field in packets. The PPP Bridge Configuration Table contains
+		configuration information for PPP bridging.
+		<BR>
+		The PPP Bridge Media Table records the types of MAC frames that can be sent or
+		received across each of the system’s interfaces. The PPP Bridge Media
+		Configuration Table contains configuration information used to negotiate the
+		<A HREF="../main/glossar2.html#mac" TARGET="glossary">MAC</A>
+		 types to be sent or received.
+		<BR>
+		<BR>
+
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="methern1.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="managing.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mnframe3.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+		
+	</BODY>
+	
+</HTML>

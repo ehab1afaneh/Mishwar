@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MIB II : Datatypes in SNMP
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		
+		<BR>
+
+		<CENTER>
+			<IMG SRC="images/tsnmdata.gif" WIDTH="312" HEIGHT="42" ALT="DATATYPES SNMP">
+			
+			<BR>
+			<FONT SIZE="+1" FACE="Comic Sans MS">
+				(Simple / OBJECT IDENTIFIER)
+			</FONT>
+		</CENTER>
+		<BR>
+		
+		<A HREF="../main/glossar3.html#snmp" TARGET="glossary">SNMP</A>
+		 use the following basic 
+		<A HREF="../main/glossar1.html#asn1" TARGET="glossary">ASN.1</A>
+		 datatypes as the most important ones :
+		<BR>
+		<LI>
+		<A HREF="../main/glossar2.html#oi" TARGET="glossary">OBJECT IDENTIFIER</A>
+		<LI>
+		INTEGER
+		<LI>
+		OCTET STRING
+		<LI>
+		NULL
+		<LI>
+		BIT STRING (
+		<A HREF="../main/glossar3.html#v2" TARGET="glossary">SNMP V2</A>
+		)
+		
+		<BR>
+		<BR>
+		
+		This is an example of how is written a datatype :
+		<BR>
+		&nbsp;&nbsp;&nbsp;The INTEGER datatype.
+<PRE>
+	ifNumber OBJECT-TYPE
+		SYNTAX INTEGER
+		ACCESS read-only
+		STATUS mandatory
+		DESCRIPTION
+			" The number of network interfaces
+			( regardless of their current states)
+			present on this system."
+		:== { interface 1 }
+</PRE>
+		<BR>
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+		<BR>
+		
+		
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+
+			<A HREF="mib2.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="framemib.html" TARGET="_top"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER><BR>
+<BR>
+
+	</BODY>
+	
+</HTML>

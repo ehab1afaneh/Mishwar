@@ -1,0 +1,18 @@
+/* Download BTN area css
+============================================================================================ */
+
+
+.download{
+ 
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 18px;
+}
+
+/* End Download BTN area css
+============================================================================================ */
+
+/*# sourceMappingURL=_button.css.map */

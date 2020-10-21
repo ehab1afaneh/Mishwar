@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	
+	<HEAD>
+		<TITLE>
+			SNMP MONITORING : Host Top N
+		</TITLE>
+		<META NAME="AUTHOR" CONTENT="DELCROIX Maxime, LUMETTA Olivier">
+		<META NAME="GENERATOR" CONTENT="Arachnophilia 3.9">
+		<META NAME="FORMATTER" CONTENT="Arachnophilia 3.9">
+	</HEAD>
+	
+	<BODY BACKGROUND="../images/backmain.gif" BGCOLOR="#fefefe" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#0080c0">
+		<BR>
+		
+		
+		<CENTER>
+			<IMG SRC="images/thostn.gif" WIDTH="212" HEIGHT="45" ALT="HOST TOP N">
+			
+			<BR>
+			<FONT SIZE="+2" FACE="Comic sans ms">
+				(1.3.6.1.2.1.16.5)
+			</FONT>
+		</CENTER>
+		<BR>
+		This group allows to know the busiest station on the network and which is really
+		busy. The hostTopN group provides frameworks to configure what we want the
+		report to tell us. The operator can choose the criteria which will give him the
+		hosts matching with the parameters. These parameters are the following
+		ones :
+		<BR>
+		<OL>
+			<LI>
+			Incoming packets
+			<LI>
+			Outgoing packets
+			<LI>
+			Incoming octets
+			<LI>
+			Outgoing octets
+			<LI>
+			Outgoing errors
+			<LI>
+			Outgoing broadcast packets
+			<LI>
+			Outgoing multicast packet.
+		</OL>
+		
+		The top N (N is the number of stations you want in your result table) report is
+		extracted then, written in the hostTopNControlTable .
+		<BR>
+		This includes :
+		<BR>
+		<LI>
+		the maximum number of hosts you want to track.
+		<LI>
+		one of the 7 preceding parameters statistics.
+		<LI>
+		the time the
+		<A HREF="../main/glossar2.html#monitor" TARGET="glossary">monitor</A>
+		started.
+		<LI>
+		The duration of the reporting interval.
+		<BR>
+		<BR>
+		
+		Two copies of the time interval are created. One of them is counted down
+		(hostTopNTimeRemaining) until it reaches 0. Thus, it can not be set to 0. And
+		the interval setting is copied into the hostTopNDuration variable.
+		<BR>
+		<BR>
+		The duration variable is immovable. But the hostTopNTimeRemaining variable will
+		decrease second by second until it reaches 0, then the sampling results are
+		written in the  Host Top N table.
+		<BR>
+		
+		The result of the counts configured are stored in the HostTopN table. Hosts
+		that have the largest charge of the selected parameters are listed (sorted
+		descending). At each report, hosts are indexed by their Top N order.
+		<BR>
+		<BR>
+
+<!-- -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* PAGE END -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
+		<HR WIDTH="75%" ALIGN=CENTER>
+		<CENTER>
+			<A HREF="mohost3.html"><IMG SRC="../images/mback.gif" WIDTH="100" HEIGHT="29" ALT="Back"  ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="mormon0.html"><IMG SRC="../images/menu.gif" WIDTH="141" HEIGHT="27" ALT="Menu" ALIGN="MIDDLE" BORDER="0"></A>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<A HREF="momatri5.html"><IMG SRC="../images/mnext.gif" WIDTH="100" HEIGHT="27" ALT="Next"  ALIGN="MIDDLE" BORDER="0"></A>
+		</CENTER>
+<BR>
+<BR>
+
+		
+		
+	</BODY>
+	
+</HTML>
